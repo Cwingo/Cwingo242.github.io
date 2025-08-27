@@ -81,6 +81,16 @@
   }
   #assignments a b{ display:block; color:var(--text) }
   #assignments a small{ color:var(--muted) }
+  #assignments a {
+    display:block;
+    background:#121633;
+    border:1px solid var(--line);
+    border-radius:10px;
+    padding:.8rem;
+  }
+  #assignments a b { display:block; color:var(--text) }
+  #assignments a small { color:var(--muted) }
+  
   
   /*  Footer  */
   #footer{
