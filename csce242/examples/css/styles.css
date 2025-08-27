@@ -1,0 +1,44 @@
+/* Structure */
+body {
+    font-family: Arial, Helvetica, sans-serif;
+    background: url(images/image.png);
+    background-size: cover;
+  }
+  
+  #content {
+    background: lime;
+    width: 70%;
+    margin: 0 auto;          /* center the block */
+    padding: 10px;           /* add space inside */
+    border-radius: 5px;      /* round corners */
+  }
+  
+  /* Table */
+  table {
+    border-collapse: collapse;
+  }
+  
+  th,
+  td {
+    border: 1px solid deeppink;
+    padding: 5px 10px;       /* 5 top/bottom, 10 left/right */
+  }
+  
+  th {
+    background: lime;
+  }
+  
+  /* Images */
+  #giraffe-pic {
+    box-shadow: 7px 7px 7px dimgray;  /* add blur for a softer shadow */
+  }
+  
+  /* Font */
+  h1 {
+    color: cyan;
+  }
+  
+  h2 {
+    color: deeppink;
+  }
+  
