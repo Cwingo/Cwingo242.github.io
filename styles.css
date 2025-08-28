@@ -9,7 +9,7 @@
     --link-hover: #ff8a3d;
   }
 
-  /* ===== Font Import ===== */
+  /*  Font Import  */
 @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;800&display=swap');
 
   
@@ -47,49 +47,123 @@
   }
   #repo-link.btn{
     display:inline-block;
-    background:var(--link);
-    color:#0b0d1d;
-    font-weight:700;
-    padding:.55rem .9rem;
-    border-radius:10px;
+    background: linear-gradient(135deg, #f5d97d, #d4a017);
+    color:#1a1a1a;
+    font-weight:800;
+    padding:.65rem 1.2rem;
+    border-radius:12px;
+    border:1px solid rgba(0,0,0,.25);
+  
+    /* shine & depth */
+    box-shadow: 0 8px 18px rgba(212,160,23,.35), inset 0 1px 0 rgba(255,255,255,.4);
+    text-shadow: 0 1px 1px rgba(255,255,255,.6);
+  
+    position:relative;
+    overflow:hidden;
+    transition: transform .12s ease, box-shadow .2s ease;
   }
   
-  /*  Assignments (Section Card)  */
-  #assignments{
-    width:min(900px, 92%);
+  #repo-link.btn::after{
+    content:"";
+    position:absolute;
+    top:0; left:-75%; width:50%; height:100%;
+    background: linear-gradient(120deg, rgba(255,255,255,.5) 0%, rgba(255,255,255,0) 60%);
+    transform: skewX(-20deg);
+  }
+  
+  #repo-link.btn:hover{
+    transform: translateY(-2px);
+    box-shadow: 0 12px 24px rgba(212,160,23,.45), inset 0 1px 0 rgba(255,255,255,.5);
+  }
+  
+  #repo-link.btn:hover::after{
+    left:130%; transition: left .7s ease;
+  }
+  
+  
+  /*  Assignments (Flexbox)  */
+#assignments{
+    width:min(900px,92%);
     margin:1rem auto 2rem;
     background:var(--card);
     border:1px solid var(--line);
     border-radius:12px;
     padding:1rem;
   }
-  #assignments h3{ margin:0 0 .6rem 0; font-weight:800 }
+  
+  #assignments h3{ margin:0 0 .8rem 0; font-weight:800; text-align:center; }
+  
   #assignments ol{
     list-style:none;
     margin:0;
     padding:0;
-    display:grid;
-    grid-template-columns:repeat(auto-fit,minmax(240px,1fr));
-    gap:12px;
+  
+    /* flexbox layout per rubric */
+    display:flex;
+    flex-wrap:wrap;
+    gap:18px;                /* matches the diagram spacing */
+    justify-content:center;  /* center the row */
   }
+  
+  #assignments li{
+    flex: 1 1 260px;         /* 3-up on wide, 2-up mid, 1-up small */
+    max-width: 300px;
+  }
+  
   #assignments a{
     display:block;
     background:#121633;
     border:1px solid var(--line);
     border-radius:10px;
-    padding:.8rem;
+    padding:12px;
+    text-decoration:none;
   }
-  #assignments a b{ display:block; color:var(--text) }
-  #assignments a small{ color:var(--muted) }
-  #assignments a {
-    display:block;
-    background:#121633;
+  
+  #assignments a:hover{ background:#162046; }
+  
+  #assignments .thumb{
+    width:100%;
+    aspect-ratio: 2 / 1;     /* 300×150 look */
+    object-fit:cover;
     border:1px solid var(--line);
-    border-radius:10px;
-    padding:.8rem;
+    border-radius:6px;
+    display:block;
+    margin-bottom:10px;
   }
-  #assignments a b { display:block; color:var(--text) }
-  #assignments a small { color:var(--muted) }
+  
+  #assignments h4{
+    margin:0 0 6px 0;
+    color:var(--text);
+    font-weight:700;
+    font-size:1rem;
+  }
+  
+  #assignments .desc{
+    margin:0;
+    color:var(--muted);
+    font-size:.9rem;
+    line-height:1.4;
+  }
+  
+
+/* Uniform screenshots with frame */
+#assignments .thumb{
+    width:100%;
+    aspect-ratio: 2 / 1;
+    object-fit:cover; display:block;
+    background:#0a1024;
+    padding:6px; border:1px solid #263258; border-radius:10px;
+    margin-bottom:10px;
+    box-shadow: inset 0 0 0 1px rgba(255,255,255,.03);
+    transition: filter .12s ease;
+  }
+  #assignments a:hover .thumb{ filter: brightness(1.05) }
+  /*  Media Query (stack vertically on small screens)  */
+  @media (max-width: 700px){
+    #assignments ol{ gap:14px; }
+    #assignments li{ flex:1 1 100%; max-width: 520px; }
+  }
+  
   
   
   /*  Footer  */
