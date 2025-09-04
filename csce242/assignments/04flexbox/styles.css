@@ -1,0 +1,135 @@
+* { box-sizing: border-box; }
+:root{
+  --bg: #ffffff;
+  --ink: #0f172a;
+  --nav: #7c3aed;
+  --nav-sep: rgba(255,255,255,.45);
+  --title: #ff6b6b;
+  --gallery: #14b8a6;
+  --gap: 16px;
+  --max: 1100px;
+}
+
+body{
+  margin: 0;
+  font-family: system-ui, -apple-system, "Segoe UI", Roboto, Arial, sans-serif;
+  line-height: 1.5;
+  color: var(--ink);
+  background: var(--bg);
+}
+
+/* Header + nav */
+#site-header h1 { margin: 0 0 var(--gap); text-align: center; padding-top: var(--gap); }
+#nav { width: 100%; background: var(--nav); }
+.main-nav{
+  list-style: none;
+  margin: 0 auto;
+  padding: 0 var(--gap);
+  max-width: var(--max);
+  display: flex;
+  flex-direction: column;
+  gap: 0;
+}
+.main-nav li { flex: 1; }
+.main-nav a{
+  display: block;
+  color: #fff;
+  text-decoration: none;
+  text-align: center;
+  padding: 12px 8px;
+  border-bottom: 1px solid var(--nav-sep);
+}
+.main-nav li:last-child a{ border-bottom: none; }
+
+/* Containers */
+#part1, #part2{
+  width: 100%;
+  max-width: var(--max);
+  margin: 0 auto;
+  padding: var(--gap) 0;
+}
+
+/* Part 1 */
+#part1{ display: flex; flex-direction: column; gap: var(--gap); }
+#left-col, #right-col{ padding: 0; }
+
+.idea{
+  display: flex;
+  align-items: flex-start;
+  gap: var(--gap);
+  margin: 0 0 var(--gap);
+}
+.idea img{ width: 200px; height: auto; display: block; }
+.idea-text{ max-width: 560px; padding: 12px; }
+.idea-text h2{ margin: 0 0 8px; }
+
+/* Part 2 */
+#part2{ display: flex; flex-direction: column; gap: var(--gap); }
+#links{ padding: var(--gap) 0 var(--gap) var(--gap); }
+#links h3{ margin: 0 0 8px; }
+#links ul{ margin: 0; padding-left: 18px; }
+
+#cards{
+  display: flex;
+  flex-wrap: wrap;
+  gap: var(--gap);
+}
+.card{
+  flex: 1 1 100%;
+  padding: var(--gap);
+  color: #fff;
+  background: var(--title);
+}
+.card.gallery{ background: var(--gallery); }
+.card img{ display: block; margin: 8px auto; width: 200px; height: auto; }
+.card h4{ margin: 4px 0 8px; }
+
+/* Footer */
+#site-footer{
+  width: 100%;
+  text-align: center;
+  padding: var(--gap);
+  background: var(--nav);
+  color: #fff;
+  margin-top: var(--gap);
+}
+
+/* Media */
+@media (min-width: 900px){
+  .main-nav{ flex-direction: row; }
+  .main-nav a{ border-bottom: none; border-right: 1px solid var(--nav-sep); }
+  .main-nav li:last-child a{ border-right: none; }
+
+  #part1{ flex-direction: row; }
+  #left-col{ flex: 2; }
+  #right-col{ flex: 1; }
+
+  #part2{ flex-direction: row; align-items: flex-start; }
+  #links{ width: 180px; flex: 0 0 180px; padding: var(--gap); }
+  #cards{ flex: 1; }
+  .card{ flex: 1 1 calc(25% - var(--gap) * .75); }
+}
+/*  Final flush-to-edge tweak for Part 1 on large screens  */
+@media (min-width: 900px){
+    /* Let Part 1 span the full viewport width */
+    #part1{
+      max-width: none;
+      width: 100%;
+      padding-left: 0;
+      padding-right: 0;
+    }
+  
+    /* Remove any side padding so images/text can sit on the edges */
+    #left-col, #right-col{ padding: 0; }
+  
+    /* Keep rows tight; the image already sits flush, spacing is handled by 'gap' */
+    #left-col .idea{ margin-left: 0; }
+    #right-col .idea{ margin-right: 0; }
+  
+    /* Ensure images truly hug the edges */
+    #left-col  .idea img{ margin-left: 0; }
+    #right-col .idea img{ margin-right: 0; }
+  }
+  
+
+
