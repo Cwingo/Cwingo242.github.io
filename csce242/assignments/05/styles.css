@@ -1,0 +1,141 @@
+/* base */
+*{box-sizing:border-box}
+body{margin:0;font-family:Arial,Helvetica,sans-serif;color:#1a1c1f;background:#f6f7f9;line-height:1.55}
+.wrap{width:1120px;max-width:92%;margin:0 auto}
+
+/* utility */
+#utility{background:#111;color:#fff}
+#utility ul{display:flex;gap:14px;list-style:none;margin:0;padding:8px 0;flex-wrap:wrap}
+#utility a{color:#fff;text-decoration:none}
+
+/* branding */
+#branding{background:#000;color:#fff;border-bottom:4px solid #73000A}
+.brand-row{display:flex;align-items:center;justify-content:space-between;padding:16px 0}
+#usc-logo{color:#fff;text-decoration:none;font-weight:800}
+#college-name{margin:0;font-size:1.6rem}
+
+/* nav */
+#main-nav{background:#73000A;border-bottom:3px solid #5a000e}
+#main-nav ul{display:flex;justify-content:flex-end;list-style:none;margin:0;padding:0}
+#main-nav li{position:relative}
+#main-nav li+li::before{content:"";position:absolute;left:0;top:25%;bottom:25%;width:1px;background:rgba(255,255,255,.4)}
+#main-nav a{display:block;padding:14px 18px;color:#fff;text-decoration:none;font-weight:700;text-transform:uppercase;letter-spacing:.02em;line-height:1}
+#main-nav a:hover{background:#5a0008}
+
+/* hero */
+#hero{position:relative;background:#000}
+#hero img{display:block;width:100%;height:56vw;min-height:420px;max-height:760px;object-fit:cover}
+#hero-title{position:absolute;left:48px;bottom:48px;margin:0;background:#fff;border-left:6px solid #73000A;padding:14px 18px;box-shadow:0 2px 8px rgba(0,0,0,.15)}
+#hero-title .wrap{width:auto;max-width:none;margin:0;padding:0}
+#hero-title h2{margin:0;color:#73000A}
+
+/* intro */
+#intro{background:#fff}
+#intro .wrap{padding:28px 0}
+
+/* buttons */
+.btn{display:inline-block;padding:8px 14px;border:1px solid #73000A;border-radius:4px;text-decoration:none;color:#73000A;background:#fff}
+.btn.solid{background:#73000A;color:#fff}
+.btn.light{background:#fff;color:#111;border-color:#fff}
+
+/* prepared */
+#prepared{padding:0;margin:0;background:#f3f4f6}
+#prepared .wrap{width:100%;max-width:100%;margin:0;padding:0}
+#prepared .split{display:flex;gap:0}
+#prepared .panel{flex:1;min-height:420px}
+#prepared-copy{background:#73000A;color:#fff;padding:40px}
+#prepared .panel img{width:100%;height:100%;object-fit:cover;display:block}
+
+/* programs */
+#programs{background:#e9ebef;text-align:center;padding:32px 0}
+#programs h3{margin:0 0 6px;color:#73000A}
+#programs .sub{margin:0 0 16px}
+#program-buttons{display:flex;flex-wrap:wrap;gap:10px;justify-content:center}
+#program-buttons .btn{min-width:220px}
+
+/* impact */
+#impact{position:relative;margin:0;padding:0}
+#impact img{width:100%;height:500px;object-fit:cover;display:block}
+#impact .impact-card{position:absolute;bottom:40px;left:40px;background:#000;color:#fff;padding:24px 28px;max-width:420px}
+#impact .impact-card h3{margin:0 0 10px}
+
+/* testimonial */
+#testimonial{background:#73000A;color:#fff}
+#testimonial .testimonial-row{display:block;padding:28px 0}
+#test-photo{text-align:center}
+#test-photo img{width:200px;height:200px;border-radius:100px;object-fit:cover;margin:0 auto 12px}
+#test-quote{margin:0;text-align:left}
+#test-quote p{margin:0 0 8px;font-style:italic}
+
+/* connect */
+#connect{padding:0;margin:0;background:#f3f4f6}
+#connect .wrap{width:100%;max-width:100%;margin:0;padding:0}
+#connect .split{display:flex;gap:0}
+#connect .panel{flex:1;min-height:420px}
+#connect-copy{background:#1E4751;color:#fff;padding:40px}
+#connect .panel img{width:100%;height:100%;object-fit:cover;display:block}
+
+/* news */
+#news{background:#fff;padding:32px 0}
+#news h3{margin:0 0 12px;color:#73000A}
+#news-grid{display:block}
+.news-card{border:1px solid #ddd;border-radius:4px;padding:12px;margin-bottom:16px}
+.news-card img{width:100%;display:block;border-bottom:1px solid #eee;margin-bottom:8px}
+.news-card h4{margin:6px 0}
+.news-card .read{font-weight:700;color:#73000A;text-decoration:none}
+
+/* apply */
+#apply{padding:0;margin:0;background:#f3f4f6}
+#apply .wrap{width:100%;max-width:100%;margin:0;padding:0}
+#apply .split{display:flex;gap:0}
+#apply .panel{flex:1;min-height:420px}
+#apply-copy{background:#000;color:#fff;padding:40px}
+#apply .panel img{width:100%;height:100%;object-fit:cover;display:block}
+
+/* prefooter */
+#prefooter{background:#e9ebef}
+#prefooter .wrap{padding:26px 0}
+.pre-grid{display:flex;gap:28px;align-items:flex-start}
+#pf-col1{flex:1.2}
+#pf-col2,#pf-col3{flex:1}
+#pf-title{font-weight:800;margin:0 0 10px}
+#pf-main-btn{display:inline-block;padding:8px 12px;border:1px solid #1a1c1f;border-radius:4px;text-decoration:none;color:#1a1c1f;background:#fff}
+#pf-social{list-style:none;display:flex;gap:12px;margin:12px 0 0;padding:0}
+#pf-social li a{text-decoration:none;color:#1a1c1f;font-weight:700}
+#pf-col2 h4,#pf-col3 h4{margin:0 0 8px;font-size:0.95rem;text-transform:uppercase;letter-spacing:.02em}
+#pf-col2 ul,#pf-col3 ul{list-style:none;margin:0;padding:0}
+#pf-col2 li,#pf-col3 li{margin:6px 0}
+#pf-col2 a,#pf-col3 a{text-decoration:none;color:#1a1c1f}
+#pf-col2 a:hover,#pf-col3 a:hover{text-decoration:underline}
+
+/* footer */
+#footer{background:#73000A;color:#fff}
+#footer .wrap{padding:28px 0}
+.foot-grid{display:flex;gap:34px;align-items:flex-start;flex-wrap:wrap}
+.foot-col{flex:1 1 290px}
+.foot-col h5{margin:0 0 10px;padding-top:6px;border-top:2px solid rgba(255,255,255,.35);text-transform:uppercase;font-size:.95rem;letter-spacing:.02em}
+.foot-col ul{list-style:none;margin:0;padding:0;columns:2;column-gap:22px}
+.foot-col li{break-inside:avoid;margin:6px 0}
+.foot-col a{text-decoration:none;color:#fff}
+.foot-col a:hover{text-decoration:underline}
+#footer-lockup{font-weight:900;margin:0 0 12px}
+#footer-social{list-style:none;display:flex;gap:14px;margin:8px 0 0;padding:0}
+#footer-social a{text-decoration:none;color:#fff;font-weight:700}
+
+/* legal */
+#legal{background:#5a000e;color:#fff;text-align:center}
+#legal .wrap{padding:10px 0}
+#legal a{color:#fff;text-decoration:none}
+#legal a:hover{text-decoration:underline}
+
+/* media */
+@media (min-width:900px){
+  .split{display:flex}
+  .split>.panel{flex:1}
+  #news-grid{display:flex;gap:20px}
+  .news-card{flex:1}
+  #testimonial .testimonial-row{display:flex;gap:24px;align-items:center}
+  .pre-grid{display:flex}
+}
+
+  
