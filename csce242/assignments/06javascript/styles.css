@@ -1,0 +1,82 @@
+/* Base layout/grid spacing inspired by the in-class starter CSS.
+   (Comment required by assignment – no external libraries used.) */
+
+   :root{
+    /* WHITE & RED SCHEME */
+    --bg:#ffffff;        /* page background (white) */
+    --card:#ffffff;      /* cards (white) */
+    --ink:#111111;       /* main text */
+    --border:#fecaca;    /* soft red border */
+    --accent:#b91c1c;    /* primary red accent */
+  }
+  
+  *{box-sizing:border-box}
+  body{
+    margin:0;
+    font:16px/1.5 system-ui,-apple-system,Segoe UI,Roboto,Helvetica,Arial,sans-serif;
+    color:var(--ink);
+    background:var(--bg);
+  }
+  
+  .frame{max-width:1000px;margin:auto;padding:24px 16px 48px;}
+  h1{margin:0 0 6px;font-size:28px;text-align:center}
+  .sub{margin:0 0 16px;text-align:center;color:var(--accent);font-weight:700}
+  
+  .grid{display:grid;grid-template-columns:repeat(3,1fr);gap:24px;align-items:start}
+  .card{
+    background:var(--card);
+    border:2px solid var(--border);
+    border-radius:12px;
+    padding:16px;
+    min-height:240px;
+  }
+  .card h2{margin:0 0 12px;text-align:center;font-size:16px;color:#1f2937}
+  
+  #lyrics{display:flex;flex-direction:column;gap:6px;min-height:170px}
+  #lyrics p{margin:0}
+  
+  .row{display:flex;align-items:center;gap:10px}
+  input[type="color"]{
+    inline-size:42px;
+    block-size:32px;
+    border:1px solid var(--border);
+    border-radius:6px;
+    padding:0;
+    background:#fff;
+    cursor:pointer;
+  }
+  .code{
+    border:1px solid var(--border);
+    background:#fff;
+    border-radius:6px;
+    padding:2px 6px;
+    font:14px ui-monospace,Menlo,Consolas,monospace;
+    color:#374151;
+  }
+  .preview{
+    margin-top:12px;
+    padding:10px;
+    border:1px dashed var(--border);
+    border-radius:8px;
+    text-align:center;
+    font-weight:600;
+    min-height:44px;
+  }
+  
+  .swap-img{
+    display:block;
+    width:100%;
+    max-width:260px;
+    height:auto;          /* natural image height */
+    /* aspect-ratio removed per your request */
+    border-radius:10px;
+    border:2px solid var(--border);
+    cursor:pointer;
+    background:#fff;
+  }
+  
+  /* Mobile: one column */
+  @media (max-width:750px){
+    .grid{grid-template-columns:1fr}
+  }
+  

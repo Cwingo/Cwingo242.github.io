@@ -1,0 +1,124 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Home • bmDub network</title>
+  <link rel="stylesheet" href="styles.css" />
+</head>
+<body>
+  <!-- ===== Header ===== -->
+  <header id="site-header">
+    <div class="wrap topbar">
+      <a class="brand" href="index.html" id="brand">
+        <img src="images/logo.png" alt="bmDub network logo" class="logo" />
+        <span>bmDub network</span>
+      </a>
+      <nav id="main-nav">
+        <a href="index.html">Explore Builds</a>
+        <a href="submit.html">Submit Build</a>
+        <a href="leaderboard.html">Leaderboard</a>
+        <a href="parts.html">Parts Library</a>
+        <a href="shops.html">Shops Directory</a>
+        <a href="tips.html">Tips &amp; Guides</a>
+        <a href="about.html">About</a>
+      </nav>
+    </div>
+  </header>
+
+  <!-- ===== Content ===== -->
+  <main id="content" class="wrap">
+    <!-- Hero -->
+    <section id="hero" class="hero">
+      <div class="hero-inner">
+        <div id="hero-copy">
+          <h1>Real BMW builds with real numbers.</h1>
+          <p class="meta">Community builds with parts lists, dyno sheets, 60–130s, and shop tags. Submit your own and get featured.</p>
+          <div id="hero-ctas" style="display:flex;gap:10px;margin-top:14px">
+            <a class="btn blue" href="explore.html">Explore Builds</a>
+            <a class="btn red"  href="submit.html">Submit Build</a>
+          </div>
+          <div id="hero-stats" class="statrow">
+            <div class="stat"><div class="k">284</div><div class="l">Total Builds</div></div>
+            <div class="stat"><div class="k">17</div><div class="l">Published This Week</div></div>
+            <div class="stat"><div class="k">612 whp</div><div class="l">Avg Top-10 Dyno</div></div>
+          </div>
+        </div>
+        <div id="hero-visual" class="placeholder" aria-hidden="true"></div>
+      </div>
+    </section>
+
+    <!-- Featured Builds -->
+    <section id="featured" class="section">
+      <h2>Featured Builds</h2>
+      <div id="featured-grid" class="grid-3">
+        <article class="card" id="feat-540i">
+          <div class="img"></div>
+          <div class="body">
+            <div style="display:flex;justify-content:space-between;align-items:center">
+              <h3>G30 540i • E50 • Stage 2+</h3><strong>585 whp</strong>
+            </div>
+            <div class="meta">B58 | xDrive | Pure800 | XHP | Catless DP</div>
+            <div class="chips"><span class="chip">E50</span><span class="chip">Street</span><span class="chip">Daily</span></div>
+            <a class="btn" href="build.html">View Build</a>
+          </div>
+        </article>
+
+        <article class="card" id="feat-m5">
+          <div class="img"></div>
+          <div class="body">
+            <div style="display:flex;justify-content:space-between;align-items:center">
+              <h3>F90 M5 • E30 • Custom</h3><strong>710 whp</strong>
+            </div>
+            <div class="meta">S63 | Intakes | Downpipes</div>
+            <div class="chips"><span class="chip">Drag</span><span class="chip">E30</span></div>
+            <a class="btn" href="build.html">View Build</a>
+          </div>
+        </article>
+
+        <article class="card" id="feat-340i">
+          <div class="img"></div>
+          <div class="body">
+            <div style="display:flex;justify-content:space-between;align-items:center">
+              <h3>F30 340i • 93 • OTS</h3><strong>440 whp</strong>
+            </div>
+            <div class="meta">B58 | RWD | IC | CP</div>
+            <div class="chips"><span class="chip">Budget</span><span class="chip">93</span></div>
+            <a class="btn" href="build.html">View Build</a>
+          </div>
+        </article>
+      </div>
+    </section>
+
+    <!-- Top Runs -->
+    <section id="top-runs" class="section">
+      <h2>Top Runs</h2>
+      <div id="top-runs-grid" class="grid-2">
+        <table id="top-whp" class="table">
+          <thead><tr><th>#</th><th>Build</th><th>Fuel</th><th>WHP</th></tr></thead>
+          <tbody>
+            <tr><td>1</td><td>F90 M5 (S63)</td><td>E30</td><td>710</td></tr>
+            <tr><td>2</td><td>G30 540i (B58)</td><td>E50</td><td>585</td></tr>
+            <tr><td>3</td><td>F30 340i (B58)</td><td>93</td><td>440</td></tr>
+          </tbody>
+        </table>
+
+        <table id="top-60130" class="table">
+          <thead><tr><th>#</th><th>Build</th><th>Fuel</th><th>Time (s)</th></tr></thead>
+          <tbody>
+            <tr><td>1</td><td>F90 M5</td><td>E30</td><td>5.14</td></tr>
+            <tr><td>2</td><td>G30 540i</td><td>E50</td><td>7.20</td></tr>
+            <tr><td>3</td><td>F30 340i</td><td>93</td><td>9.65</td></tr>
+          </tbody>
+        </table>
+      </div>
+    </section>
+  </main>
+
+  <!-- ===== Footer ===== -->
+  <footer id="site-footer">
+   
+  </footer>
+</body>
+</html>
+

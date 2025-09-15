@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Assignment 7</title>
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+  <main class="frame">
+    <h1>Assignment 6</h1>
+    <p class="sub">Introduction to JavaScript</p>
+
+    <section class="grid">
+      <!-- Column 1 -->
+      <section id="sunnyCard" class="card">
+        <h2>Sunny Times</h2>
+        <div id="lyrics"></div>
+      </section>
+
+      <!-- Column 2 -->
+      <section class="card">
+        <h2>Select A Color:</h2>
+        <div class="row">
+          <input id="colorPicker" type="color" value="#b91c1c" />
+          <span id="colorCode" class="code">#B91C1C</span>
+        </div>
+        <p id="colorPreview" class="preview">This text changes to your color.</p>
+      </section>
+
+      <!-- Column 3 -->
+      <section class="card">
+        <h2>Image Change</h2>
+        <img id="weatherImg" class="swap-img" alt="Weather image. Click to change.">
+      </section>
+    </section>
+  </main>
+
+  <script src="script.js"></script>
+</body>
+</html>

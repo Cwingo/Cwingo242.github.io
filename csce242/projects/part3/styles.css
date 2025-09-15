@@ -1,0 +1,163 @@
+/* ======================= THEME VARIABLES ======================= */
+:root{
+    --bg:#ffffff;
+    --surface:#ffffff;
+    --fg:#111111;
+    --muted:#666666;
+    --line:#dddddd;
+    --soft:#f5f5f5;
+    --chip:#e9e9e9;
+    --tableHead:#f0f0f0;
+    --accent:#222222;
+    --accentText:#ffffff;
+    --dash:#bdbdbd;
+  
+    /* added */
+    --blue:#2563eb;
+    --red:#dc2626;
+  
+    --header-h:72px;
+    --footer-h:64px;
+  
+    --radius-s:8px;
+    --radius-m:10px;
+    --radius-l:12px;
+    --radius-xl:14px;
+  
+    --logo-h:28px;
+  }
+  
+  /* ======================= BASE / RESET ======================= */
+  *{box-sizing:border-box}
+  html,body{
+    height:100%; margin:0; padding:0;
+    background:var(--bg); color:var(--fg);
+    font-family:system-ui,-apple-system,Segoe UI,Roboto,Helvetica,Arial,sans-serif;
+    -webkit-font-smoothing:antialiased; -moz-osx-font-smoothing:grayscale;
+  }
+  img{max-width:100%; display:block}
+  a{color:inherit; text-decoration:none}
+  :where(a,button,input,select,textarea):focus-visible{outline:2px solid var(--fg); outline-offset:2px}
+  
+  /* ======================= LAYOUT SHELLS ======================= */
+  .wrap{max-width:1200px; margin:0 auto; padding:0 16px}
+  header{
+    position:sticky; top:0; z-index:100;
+    background:var(--surface); border-bottom:1px solid var(--line);
+  }
+  .topbar{
+    height:var(--header-h);
+    display:flex; align-items:center; justify-content:space-between; gap:16px;
+  }
+  .brand{display:flex; align-items:center; gap:10px; font-weight:800; font-size:18px; letter-spacing:.2px}
+  .brand img.logo{height:var(--logo-h); width:auto}
+  nav{display:flex; gap:18px; flex-wrap:wrap}
+  nav a{padding:8px 10px; border-radius:var(--radius-s)}
+  nav a:hover{background:var(--soft)}
+  main{min-height:calc(100vh - var(--header-h) - var(--footer-h))}
+  footer{
+    height:var(--footer-h); display:flex; align-items:center;
+    border-top:1px solid var(--line); color:var(--muted); font-size:14px;
+  }
+  
+  /* ======================= TYPOGRAPHY ======================= */
+  h1{font-size:34px; line-height:1.2; margin:0 0 8px}
+  h2{font-size:26px; margin:0 0 14px}
+  h3{font-size:18px; margin:0 0 6px}
+  p{margin:0 0 12px; line-height:1.6}
+  .meta{color:var(--muted); font-size:13px}
+  
+  /* ======================= UI PRIMITIVES ======================= */
+  .btn{
+    display:inline-flex; align-items:center; justify-content:center;
+    padding:12px 16px; border-radius:var(--radius-m);
+    border:1px solid var(--line); background:var(--surface); font-weight:700;
+  }
+  .btn:hover{filter:brightness(.98)}
+  
+  /* changed: primary is blue; added .blue and .red */
+  .btn.primary,
+  .btn.blue{background:var(--blue); color:var(--accentText); border-color:var(--blue)}
+  .btn.red{background:var(--red); color:var(--accentText); border-color:var(--red)}
+  
+  .placeholder{
+    background:var(--soft); border:1px dashed var(--dash);
+    border-radius:var(--radius-l); width:100%; aspect-ratio:16/10;
+  }
+  
+  /* ======================= SECTIONS & GRIDS ======================= */
+  .section{padding:28px 0}
+  .grid-3{display:grid; grid-template-columns:repeat(3,1fr); gap:16px}
+  .grid-2{display:grid; grid-template-columns:1fr 1fr; gap:16px}
+  @media (max-width:960px){ .grid-3{grid-template-columns:1fr 1fr} .grid-2{grid-template-columns:1fr} }
+  @media (max-width:640px){ .grid-3{grid-template-columns:1fr} }
+  
+  /* ======================= HERO ======================= */
+  .hero{border-bottom:1px solid var(--line); background:var(--soft)}
+  .hero-inner{display:grid; grid-template-columns:1.1fr .9fr; gap:24px; padding:28px 0}
+  @media (max-width:960px){ .hero-inner{grid-template-columns:1fr} }
+  
+  /* ======================= STAT TILES ======================= */
+  .statrow{display:grid; grid-template-columns:repeat(3,1fr); gap:14px; margin-top:16px}
+  .stat{background:var(--surface); border:1px solid var(--line); border-radius:var(--radius-l); padding:14px}
+  .stat .k{font-size:22px; font-weight:800}
+  .stat .l{color:var(--muted); font-size:13px}
+  
+  /* ======================= CARDS ======================= */
+  .card{background:var(--surface); border:1px solid var(--line); border-radius:var(--radius-xl); overflow:hidden}
+  .card .img{background:#e5e5e5; border-bottom:1px solid var(--line); aspect-ratio:16/9}
+  .card .body{padding:12px 12px 14px}
+  
+  /* ======================= TABLES ======================= */
+  .table{
+    width:100%; border:1px solid var(--line);
+    border-collapse:collapse; border-radius:var(--radius-l);
+    overflow:hidden; background:var(--surface);
+  }
+  .table th,.table td{padding:10px 12px; border-bottom:1px solid var(--line); text-align:left; font-size:14px}
+  .table th{background:var(--tableHead)}
+  
+  /* ======================= CHIPS ======================= */
+  .chips{display:flex; flex-wrap:wrap; gap:6px; margin:6px 0 12px}
+  .chip{background:var(--chip); color:#333; border-radius:999px; padding:5px 8px; font-size:12px}
+  
+  /* ======================= FORMS ======================= */
+  .form label{display:block; font-weight:700; margin:12px 0 6px}
+  .form input,.form select,.form textarea{
+    width:100%; padding:10px 12px;
+    border:1px solid var(--line); border-radius:var(--radius-m); background:var(--surface);
+  }
+  .form textarea{min-height:120px; resize:vertical}
+  .form .row{display:grid; grid-template-columns:1fr 1fr; gap:16px}
+  @media (max-width:700px){ .form .row{grid-template-columns:1fr} }
+  
+  /* ======================= TABS (PARTS PAGE) ======================= */
+  .tabs input[type="radio"]{ position:absolute; left:-9999px }
+  .tab-nav{
+    display:flex; gap:6px; align-items:flex-end;
+    border-bottom:1px solid var(--line); margin-bottom:0;
+  }
+  .tab-nav label{
+    cursor:pointer; user-select:none;
+    padding:10px 12px; font-weight:700;
+    background:#f7f7f7; border:1px solid var(--line); border-bottom:none;
+    border-radius:var(--radius-l) var(--radius-l) 0 0;
+  }
+  .tab-nav label:hover{ background:var(--soft) }
+  .tab-panels{ }
+  .tab-panel{
+    display:none; padding:16px;
+    background:var(--surface); border:1px solid var(--line); border-top:none;
+    border-radius:0 var(--radius-l) var(--radius-l) var(--radius-l);
+  }
+  #tab-all:checked        ~ .tab-panels #panel-all{display:block}
+  #tab-engine:checked     ~ .tab-panels #panel-engine{display:block}
+  #tab-suspension:checked ~ .tab-panels #panel-suspension{display:block}
+  #tab-interior:checked   ~ .tab-panels #panel-interior{display:block}
+  #tab-all:checked        ~ .tab-nav label[for="tab-all"],
+  #tab-engine:checked     ~ .tab-nav label[for="tab-engine"],
+  #tab-suspension:checked ~ .tab-nav label[for="tab-suspension"],
+  #tab-interior:checked   ~ .tab-nav label[for="tab-interior"]{
+    background:var(--surface); border-bottom:1px solid var(--surface);
+  }
+  
