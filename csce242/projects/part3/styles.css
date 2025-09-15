@@ -161,3 +161,31 @@
     background:var(--surface); border-bottom:1px solid var(--surface);
   }
   
+/* ===== Mobile header/*/
+@media (max-width: 720px){
+    .topbar{
+      height:auto;              /* allow header to grow */
+      padding:8px 0;
+      flex-wrap:wrap;           /* brand + nav can go to two rows */
+      row-gap:6px;
+    }
+    .brand span{                /* keep brand compact */
+      font-size:16px;
+      line-height:1.1;
+    }
+    nav{
+      flex:1 0 100%;            /* put nav on its own row */
+      display:flex;
+      gap:12px;
+      overflow-x:auto;          /* horizontal scroll instead of ugly wraps */
+      white-space:nowrap;
+      padding-bottom:4px;
+      scrollbar-width:none;
+    }
+    nav::-webkit-scrollbar{ display:none; }
+  
+    /* Tighter hero on phones so the headline doesn’t overwhelm */
+    h1{ font-size:28px; }
+    .statrow{ grid-template-columns:1fr; }
+  }
+  
