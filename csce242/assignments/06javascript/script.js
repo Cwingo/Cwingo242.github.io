@@ -16,7 +16,6 @@ document.addEventListener("DOMContentLoaded", () => {
       filled = true;
     };
     sunnyCard.addEventListener("click", fillLyrics);
-    // keyboard listener removed per your request
   
     // Select A Color
     const picker = document.querySelector("#colorPicker");
