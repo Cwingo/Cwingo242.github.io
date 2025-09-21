@@ -7,13 +7,17 @@
   <link rel="stylesheet" href="styles.css" />
 </head>
 <body>
-  <header>
+  <header id="site-header">
     <div class="wrap topbar">
-      <a class="brand" href="index.html">
+      <a class="brand" href="index.html" id="brand">
         <img src="images/logo.png" alt="bmDub network logo" class="logo" />
         <span>bmDub network</span>
       </a>
-      <nav>
+  
+      <input class="nav-toggle" id="nav-toggle" type="checkbox" />
+      <label class="nav-btn" for="nav-toggle" aria-label="Menu"><span></span></label>
+  
+      <nav id="main-nav">
         <a href="index.html">Explore Builds</a>
         <a href="submit.html">Submit Build</a>
         <a href="leaderboard.html">Leaderboard</a>
@@ -22,8 +26,11 @@
         <a href="tips.html">Tips &amp; Guides</a>
         <a href="about.html">About</a>
       </nav>
+  
+      <label for="nav-toggle" class="nav-backdrop"></label>
     </div>
   </header>
+  
 
   <main class="wrap">
     <h1>Submit Build</h1>
@@ -44,6 +51,6 @@
     </form>
   </main>
 
-  <footer><div class="wrap">Project part 3</div></footer>
+  
 </body>
 </html>
