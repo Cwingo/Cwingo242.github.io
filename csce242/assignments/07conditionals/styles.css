@@ -32,12 +32,22 @@ body{
 #subtitle{color:var(--accent);font-weight:700;margin-top:6px}
 #nav{margin-top:10px}
 #toggle{
-  width:38px;height:30px;border:1px solid var(--line);background:var(--card);border-radius:8px;cursor:pointer
+  width:38px;height:30px;
+  border:1px solid var(--line);
+  background:var(--card);
+  border-radius:8px;
+  cursor:pointer;
+  touch-action:manipulation;
 }
 #menu{list-style:none;margin-top:10px;display:none}
 #menu li{margin:6px 0}
-#menu a{text-decoration:none;color:var(--accent);padding:4px 8px;border-radius:6px}
-#menu a:hover{background:#ecf9f9}
+#menu a{
+  text-decoration:none;
+  color:var(--accent);
+  padding:4px 8px;
+  border-radius:6px
+}
+#menu a:hover{background:#ecf9f9;cursor:pointer}
 
 /*  Large Menu  */
 @media (min-width:680px){
@@ -56,6 +66,7 @@ body{
   border-radius:16px;
   padding:22px 18px;
   text-align:center;
+  margin-top:6px;
 }
 .hide{display:none}
 
@@ -63,7 +74,11 @@ body{
 #days-label{display:block;margin-bottom:10px;color:#2e6261}
 #days{width:min(520px,92%);margin:10px auto 14px;display:block}
 #days-text,#plant-msg{margin:4px 0;color:#274b63}
-#plant-emoji{font-size:84px;margin-top:10px;filter:drop-shadow(0 6px 10px rgba(18,36,61,.08))}
+#plant-emoji{
+  font-size:84px;
+  margin-top:10px;
+  filter:drop-shadow(0 6px 10px rgba(18,36,61,.08))
+}
 
 /*  Exercise 2: Clock  */
 #clock-title{color:#274b63;margin-bottom:8px}
@@ -83,3 +98,9 @@ body{
 
 /*  Utility  */
 .show{display:block}
+
+/*  Mobile Spacing  */
+@media (max-width:680px){
+  #header{margin-bottom:16px}
+  #main{margin-top:6px}
+}
