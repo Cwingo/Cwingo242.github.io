@@ -101,3 +101,27 @@ btnPauseCount.onclick = () => {
     btnStartCount.disabled = false;
 }
 
+/* Donation stuff */
+const goal = 1000;
+document.getElementById("goal-span")innerHTML = goal;
+
+document.getElementById("btn-donations").onclick = () => {
+    const donation = document.getElementById("txt-donation").value;
+    const errorSpan = document.getElementById("donation-error");
+
+if(NaN(donation) || donation <= 0){
+        errorSpan.innerHTML = "* Invalid Amount";
+        return;
+    }
+
+    const donationPercent = dontation / goal * 100;
+
+    if(donationPercent >= 100){
+       donationsMessage.innerHTML = "Goal reached! Thank you for your donation!";
+    } else if (donationPercent >= 50){
+       donationsMessage.innerHTML = "You're almost there! Thank you for your donation!";
+       else {
+        donationsMessage.innerHTML = "Lets get Goaling";
+    }
+
+}
