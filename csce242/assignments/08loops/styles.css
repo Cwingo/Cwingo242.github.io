@@ -1,0 +1,132 @@
+/*  THEME  */
+:root{
+    --sky1:#f2f6f8;
+    --sky2:#d9e7ef;
+    --night1:#0f1116;
+    --night2:#10232e;
+    --ground:#8fd4b9;
+    --trunk:#6b4a2f;
+    --leaf:#52b488;
+    --cloud:#ffffff;
+    --text:#111419;
+    --accent:#2c6e9b;
+    --sun:#ffc46b;
+    --moon:#f2f4fa;
+  }
+  
+  /*  BASE  */
+  *{box-sizing:border-box}
+  html,body{height:100%}
+  body{
+    margin:0;
+    font-family:system-ui,-apple-system,Segoe UI,Roboto,Ubuntu,Cantarell,"Helvetica Neue",Arial,sans-serif;
+    color:var(--text);
+    background:linear-gradient(120deg,#f7f9ff,#eef6ff);
+    display:grid;
+    place-items:center;
+    padding:16px;
+  }
+  
+  /*  CARD  */
+  .card{
+    width:min(920px,94vw);
+    background:#fff;
+    border-radius:18px;
+    padding:20px 20px 28px;
+    text-align:center;
+    box-shadow:0 24px 60px rgba(44,110,155,.12);
+    border:1px solid rgba(16,35,46,.06);
+  }
+  h1{margin:.25rem 0 .1rem 0; font-size:1.6rem}
+  h2{margin:0 0 1rem 0; font-weight:700; color:var(--accent)}
+  #drawBtn{
+    border:0;
+    padding:.65rem 1.1rem;
+    border-radius:999px;
+    cursor:pointer;
+    background:linear-gradient(135deg,var(--accent),#3aa2cf);
+    color:#fff;
+    font-weight:700;
+  }
+  
+  /*  SCENE  */
+  #scene{
+    position:relative;
+    margin:16px auto 0;
+    height:360px;
+    border-radius:18px;
+    overflow:hidden;
+    background:linear-gradient(var(--sky1), var(--sky2) 60%, var(--ground) 60%, var(--ground));
+    outline:1px solid rgba(16,35,46,.08);
+    transition:background .3s ease;
+  }
+  
+  /*  NIGHT  */
+  #scene.night{
+    background:linear-gradient(var(--night1), var(--night2) 60%, var(--ground) 60%, var(--ground));
+  }
+  
+  /*  SUN & MOON  */
+  .astr{
+    position:absolute;
+    top:24px;
+    right:24px;
+    width:68px;
+    height:68px;
+    border-radius:50%;
+  }
+  .sun{background:var(--sun)}
+  .moon{
+    background:var(--moon);
+    box-shadow:inset -16px 0 0 8px var(--night1), 0 0 20px 5px rgba(242,244,250,.18);
+  }
+  
+  /*  CLOUDS  */
+  .cloud{
+    position:absolute;
+    height:54px;
+    width:146px;
+  }
+  .puff{
+    position:absolute;
+    background:var(--cloud);
+    width:58px; height:58px;
+    border-radius:50%;
+    box-shadow:0 3px 0 rgba(0,0,0,.035) inset, 0 2px 6px rgba(0,0,0,.06);
+  }
+  .p0{left:0;   top:8px;  width:66px; height:66px}
+  .p1{left:42px; top:0}
+  .p2{left:86px; top:10px}
+  .p3{left:58px; top:22px; width:74px; height:44px; border-radius:24px}
+  
+  /*  TREES  */
+  .tree{
+    position:absolute;
+    width:60px; height:120px;
+    bottom:20px;
+  }
+  .trunk{
+    position:absolute;
+    bottom:0; left:50%;
+    transform:translateX(-50%);
+    width:14px; height:40px;
+    background:var(--trunk);
+    border-radius:4px;
+  }
+  .crown{
+    position:absolute;
+    bottom:26px; left:50%;
+    transform:translateX(-50%);
+    width:70px; height:70px;
+    background:radial-gradient(circle at 30% 30%, #66c89b, var(--leaf));
+    border-radius:50%;
+    box-shadow:0 0 0 10px rgba(0,0,0,.03) inset;
+  }
+  
+  /*  RESPONSIVE  */
+  @media (max-width:520px){
+    #scene{height:320px}
+    .astr{width:56px;height:56px; top:18px; right:18px}
+    .tree{width:52px}
+  }
+  
