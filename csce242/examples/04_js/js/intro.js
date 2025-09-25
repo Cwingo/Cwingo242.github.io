@@ -77,22 +77,21 @@ document.getElementById("btn-bounce").onclick = (event) => {
     ball.classList.toggle("bounce");
 }
 
-
-/* Counter */ 
-let counter = 0;    
+/* Counter */
+let counter = 0;
 let counterInterval;
 const countP = document.getElementById("p-count");
+const btnStartCount = document.getElementById("btn-count-start");
+const btnPauseCount = document.getElementById("btn-count-pause")
+btnPauseCount.disabled = true;
 
-document.getElementById("btn-start-counter").onclick = () => {
-    counterInterval = setInterval(() => {
+btnStartCount.onclick = () => {
+    btnStartCount.disabled = true;
+    btnPauseCount.disabled = false;
+    counterInterval = setInterval(()=>{
         counter++;
         countP.innerHTML = counter;
-        console.log("Hi");
     }, 1000);
-}
-
-document.getElementById("btn-stop-counter").onclick = () => {
-    clearInterval(counterInterval);
 }
 
 btnPauseCount.onclick = () => {
@@ -102,26 +101,32 @@ btnPauseCount.onclick = () => {
 }
 
 /* Donation stuff */
-const goal = 1000;
-document.getElementById("goal-span")innerHTML = goal;
+const goal = 10000;
+let totalDonations = 0;
+document.getElementById("goal-span").innerHTML = goal;
 
 document.getElementById("btn-donations").onclick = () => {
-    const donation = document.getElementById("txt-donation").value;
+    const donation = document.getElementById("txt-donations").value;
     const errorSpan = document.getElementById("donation-error");
+    errorSpan.innerHTML = "";
+    const donationMessage = document.getElementById("donation-message");
+    donationMessage.innerHTML = "";
 
-if(NaN(donation) || donation <= 0){
-        errorSpan.innerHTML = "* Invalid Amount";
+    if(isNaN(donation) || donation <= 0){
+        errorSpan.innerHTML = "* Invalid Amount."
         return;
     }
 
-    const donationPercent = dontation / goal * 100;
+    totalDonations += parseInt(donation);
+    const donationPercent = totalDonations / goal * 100;
 
     if(donationPercent >= 100){
-       donationsMessage.innerHTML = "Goal reached! Thank you for your donation!";
-    } else if (donationPercent >= 50){
-       donationsMessage.innerHTML = "You're almost there! Thank you for your donation!";
-       else {
-        donationsMessage.innerHTML = "Lets get Goaling";
+        donationMessage.innerHTML = "Goal Reached!";
+    } else if(donationPercent >= 50) {
+        donationMessage.innerHTML = "Over Half Way There";
+    } else {
+        donationMessage.innerHTML = "Let's get Goaling";
     }
 
+    document.querySelector(":root").style.setProperty("--donation-percent", donationPercent + "%");
 }

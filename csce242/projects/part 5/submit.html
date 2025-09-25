@@ -1,0 +1,56 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Submit Build • bmDub network</title>
+  <link rel="stylesheet" href="styles.css" />
+</head>
+<body>
+  <header id="site-header">
+    <div class="wrap topbar">
+      <a class="brand" href="index.html" id="brand">
+        <img src="images/logo.png" alt="bmDub network logo" class="logo" />
+        <span>bmDub network</span>
+      </a>
+  
+      <input class="nav-toggle" id="nav-toggle" type="checkbox" />
+      <label class="nav-btn" for="nav-toggle" aria-label="Menu"><span></span></label>
+  
+      <nav id="main-nav">
+        <a href="index.html">Explore Builds</a>
+        <a href="submit.html">Submit Build</a>
+        <a href="leaderboard.html">Leaderboard</a>
+        <a href="parts.html">Parts Library</a>
+        <a href="shops.html">Shops Directory</a>
+        <a href="tips.html">Tips &amp; Guides</a>
+        <a href="about.html">About</a>
+      </nav>
+  
+      <label for="nav-toggle" class="nav-backdrop"></label>
+    </div>
+  </header>
+  
+
+  <main class="wrap">
+    <h1>Submit Build</h1>
+    <form class="form" action="#" method="get">
+      <label>Title</label><input type="text" placeholder="G30 540i — E50 Stage 2+">
+      <div class="row">
+        <div><label>Model</label><input type="text" placeholder="G30 540i"></div>
+        <div><label>Year</label><input type="text" placeholder="2019"></div>
+      </div>
+      <div class="row">
+        <div><label>Engine</label><input type="text" placeholder="B58"></div>
+        <div><label>Transmission</label><input type="text" placeholder="8HP"></div>
+      </div>
+      <label>Location</label><textarea placeholder="City, State + any notes"></textarea>
+      <h2 style="margin-top:6px">Photos</h2>
+      <div class="placeholder"></div>
+      <p style="margin-top:12px"><a class="btn primary" href="#">Submit (disabled)</a></p>
+    </form>
+  </main>
+
+  
+</body>
+</html>

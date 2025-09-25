@@ -1,3 +1,11 @@
+/* CSS art references:
+   Clouds inspired by W3Schools CSS Cloud (https://www.w3schools.com/howto/howto_css_cloud.asp)
+    (https://css-tricks.com/the-shapes-of-css)
+*/
+
+
+
+
 /*  THEME  */
 :root{
     --sky1:#f2f6f8;
@@ -28,7 +36,7 @@
   }
   
   /*  CARD  */
-  .card{
+  #card{
     width:min(920px,94vw);
     background:#fff;
     border-radius:18px;
@@ -60,52 +68,68 @@
     outline:1px solid rgba(16,35,46,.08);
     transition:background .3s ease;
   }
-  
-  /*  NIGHT  */
   #scene.night{
     background:linear-gradient(var(--night1), var(--night2) 60%, var(--ground) 60%, var(--ground));
   }
   
-  /*  SUN & MOON  */
-  .astr{
+  /*  SUN & MOON (CSS ART)  */
+  #sun, #moon{
     position:absolute;
     top:24px;
     right:24px;
-    width:68px;
-    height:68px;
+    width:68px; height:68px;
     border-radius:50%;
   }
-  .sun{background:var(--sun)}
-  .moon{
+  #sun{ background:var(--sun) }
+  #moon{
     background:var(--moon);
     box-shadow:inset -16px 0 0 8px var(--night1), 0 0 20px 5px rgba(242,244,250,.18);
   }
   
-  /*  CLOUDS  */
-  .cloud{
+  /*  CLOUDS (CSS ART)  */
+  [id^="cloud"]{
     position:absolute;
-    height:54px;
-    width:146px;
+    height:54px; width:146px;
   }
-  .puff{
+  [id^="cloud"] > div{
     position:absolute;
     background:var(--cloud);
     width:58px; height:58px;
     border-radius:50%;
     box-shadow:0 3px 0 rgba(0,0,0,.035) inset, 0 2px 6px rgba(0,0,0,.06);
   }
-  .p0{left:0;   top:8px;  width:66px; height:66px}
-  .p1{left:42px; top:0}
-  .p2{left:86px; top:10px}
-  .p3{left:58px; top:22px; width:74px; height:44px; border-radius:24px}
+  #cloud1 > div:nth-child(1),
+  #cloud2 > div:nth-child(1),
+  #cloud3 > div:nth-child(1),
+  #cloud4 > div:nth-child(1),
+  #cloud5 > div:nth-child(1),
+  #cloud6 > div:nth-child(1){ left:0; top:8px; width:66px; height:66px }
+  #cloud1 > div:nth-child(2),
+  #cloud2 > div:nth-child(2),
+  #cloud3 > div:nth-child(2),
+  #cloud4 > div:nth-child(2),
+  #cloud5 > div:nth-child(2),
+  #cloud6 > div:nth-child(2){ left:42px; top:0 }
+  #cloud1 > div:nth-child(3),
+  #cloud2 > div:nth-child(3),
+  #cloud3 > div:nth-child(3),
+  #cloud4 > div:nth-child(3),
+  #cloud5 > div:nth-child(3),
+  #cloud6 > div:nth-child(3){ left:86px; top:10px }
+  #cloud1 > div:nth-child(4),
+  #cloud2 > div:nth-child(4),
+  #cloud3 > div:nth-child(4),
+  #cloud4 > div:nth-child(4),
+  #cloud5 > div:nth-child(4),
+  #cloud6 > div:nth-child(4){ left:58px; top:22px; width:74px; height:44px; border-radius:24px }
   
-  /*  TREES  */
-  .tree{
+  /*  TREES (CSS ART)  */
+  [id^="tree"]{
     position:absolute;
     width:60px; height:120px;
     bottom:20px;
   }
-  .trunk{
+  [id^="tree"] > div:nth-child(1){
     position:absolute;
     bottom:0; left:50%;
     transform:translateX(-50%);
@@ -113,20 +137,20 @@
     background:var(--trunk);
     border-radius:4px;
   }
-  .crown{
+  [id^="tree"] > div:nth-child(2){
     position:absolute;
     bottom:26px; left:50%;
     transform:translateX(-50%);
     width:70px; height:70px;
-    background:radial-gradient(circle at 30% 30%, #66c89b, var(--leaf));
     border-radius:50%;
+    background:radial-gradient(circle at 30% 30%, #66c89b, var(--leaf));
     box-shadow:0 0 0 10px rgba(0,0,0,.03) inset;
   }
   
   /*  RESPONSIVE  */
   @media (max-width:520px){
     #scene{height:320px}
-    .astr{width:56px;height:56px; top:18px; right:18px}
-    .tree{width:52px}
+    #sun, #moon{width:56px;height:56px; top:18px; right:18px}
+    [id^="tree"]{width:52px}
   }
   
