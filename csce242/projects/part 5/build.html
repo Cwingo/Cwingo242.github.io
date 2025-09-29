@@ -9,14 +9,15 @@
 <body>
   <header id="site-header">
     <div class="wrap topbar">
-      <a class="brand" href="index.html" id="brand">
+      <a class="brand" href="index.html">
         <img src="images/logo.png" alt="bmDub network logo" class="logo" />
         <span>bmDub network</span>
       </a>
-  
-      <input class="nav-toggle" id="nav-toggle" type="checkbox" />
-      <label class="nav-btn" for="nav-toggle" aria-label="Menu"><span></span></label>
-  
+
+      <button id="menu-toggle" class="nav-btn" aria-label="Menu" aria-controls="main-nav" aria-expanded="false">
+        <span></span>
+      </button>
+
       <nav id="main-nav">
         <a href="index.html">Explore Builds</a>
         <a href="submit.html">Submit Build</a>
@@ -26,37 +27,63 @@
         <a href="tips.html">Tips &amp; Guides</a>
         <a href="about.html">About</a>
       </nav>
-  
-      <label for="nav-toggle" class="nav-backdrop"></label>
+
+      <div class="nav-backdrop" id="nav-backdrop"></div>
     </div>
   </header>
-  
 
   <main class="wrap">
     <h1>Build Title</h1>
-    <p class="meta">by User123 — G30 540i • B58 • xDrive</p>
+    <p class="meta">by @stealthyg30 on instagram — G30 540i • B58 • xDrive</p>
+
     <div class="grid-2 section" style="padding-top:0">
       <div>
         <h2>Specs</h2>
-        <div class="card" style="padding:12px"><p>Fuel: E50</p><p>Tune: Stage 2+</p><p>Boost: ~20 psi</p></div>
+        <div class="card" style="padding:12px">
+          <p>Fuel: E50</p>
+          <p>Tune: Stage 2+</p>
+          <p>Boost: ~20 psi</p>
+        </div>
+
         <h2 style="margin-top:18px">Parts</h2>
-        <div class="card" style="padding:12px"><p>Intercooler — Brand X</p><p>Downpipe — Brand Y</p><p>Intake — Brand Z</p></div>
+        <div class="card" style="padding:12px">
+          <p>Intercooler — Brand X</p>
+          <p>Downpipe — Brand Y</p>
+          <p>Intake — Brand Z</p>
+        </div>
+
         <h2 style="margin-top:18px">Gallery</h2>
-        <div class="placeholder"></div>
+        <div class="gallery" data-gallery>
+          <button class="gal-btn prev" aria-label="Previous"></button>
+          <div class="gal-track" data-track>
+            <img src="images/5402.png" alt="Build photo 1">
+            <img src="images/5403.png alt="Build photo 2">
+            <img src="images/5404.png" alt="Build photo 3">
+          </div>
+          <button class="gal-btn next" aria-label="Next"></button>
+        </div>
       </div>
+
       <div>
         <h2>Runs</h2>
         <table class="table">
-          <thead><tr><th>Type</th><th>Metric</th><th>Value</th><th>Notes</th></tr></thead>
-          <tbody><tr><td>Dyno</td><td>WHP</td><td>585</td><td>Mustang dyno</td></tr>
-                 <tr><td>Dragy</td><td>60–130</td><td>7.20 s</td><td>DA +200</td></tr></tbody>
+          <thead>
+            <tr><th>Type</th><th>Metric</th><th>Value</th><th>Notes</th></tr>
+          </thead>
+          <tbody>
+            <tr><td>Dyno</td><td>WHP</td><td>585</td><td>Mustang dyno</td></tr>
+            <tr><td>Dragy</td><td>60–130</td><td>7.20 s</td><td>DA +200</td></tr>
+          </tbody>
         </table>
+
         <h2 style="margin-top:18px">Comments</h2>
-        <div class="card" style="padding:12px"><p class="meta">No comments in prototype.</p></div>
+        <div class="card" style="padding:12px">
+          <p class="meta">No comments in prototype.</p>
+        </div>
       </div>
     </div>
   </main>
 
-  <footer><div class="wrap">Project part 3</div></footer>
+  <script src="script.js" defer></script>
 </body>
 </html>

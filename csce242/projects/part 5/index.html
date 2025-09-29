@@ -7,30 +7,31 @@
   <link rel="stylesheet" href="styles.css" />
 </head>
 <body>
-  <!-- ===== Header ===== -->
-  <header id="site-header">
-    <div class="wrap topbar">
-      <a class="brand" href="index.html" id="brand">
-        <img src="images/logo.png" alt="bmDub network logo" class="logo" />
-        <span>bmDub network</span>
-      </a>
-  
-      <input class="nav-toggle" id="nav-toggle" type="checkbox" />
-      <label class="nav-btn" for="nav-toggle" aria-label="Menu"><span></span></label>
-  
-      <nav id="main-nav">
-        <a href="index.html">Explore Builds</a>
-        <a href="submit.html">Submit Build</a>
-        <a href="leaderboard.html">Leaderboard</a>
-        <a href="parts.html">Parts Library</a>
-        <a href="shops.html">Shops Directory</a>
-        <a href="tips.html">Tips &amp; Guides</a>
-        <a href="about.html">About</a>
-      </nav>
-  
-      <label for="nav-toggle" class="nav-backdrop"></label>
-    </div>
-  </header>
+<header id="site-header">
+  <div class="wrap topbar">
+    <a class="brand" href="index.html">
+      <img src="images/logo.png" alt="bmDub network logo" class="logo" />
+      <span>bmDub network</span>
+    </a>
+
+    <button id="menu-toggle" class="nav-btn" aria-label="Menu" aria-controls="main-nav" aria-expanded="false">
+      <span></span>
+    </button>
+
+    <nav id="main-nav">
+      <a href="index.html">Explore Builds</a>
+      <a href="submit.html">Submit Build</a>
+      <a href="leaderboard.html">Leaderboard</a>
+      <a href="parts.html">Parts Library</a>
+      <a href="shops.html">Shops Directory</a>
+      <a href="tips.html">Tips &amp; Guides</a>
+      <a href="about.html">About</a>
+    </nav>
+
+    <div class="nav-backdrop" id="nav-backdrop"></div>
+  </div>
+</header>
+
   
 
   <!-- ===== Hero (full-bleed) ===== -->
@@ -99,7 +100,7 @@
             </div>
             <div class="meta">S63 | Intakes | Downpipes</div>
             <div class="chips"><span class="chip">Drag</span><span class="chip">E30</span></div>
-            <a class="btn light" href="build.html">View Build</a>
+            <a class="btn light" href="build2.html">View Build</a>
           </div>
         </article>
 
@@ -117,7 +118,7 @@
             </div>
             <div class="meta">B58 | RWD | IC | CP</div>
             <div class="chips"><span class="chip">Budget</span><span class="chip">93</span></div>
-            <a class="btn light" href="build.html">View Build</a>
+            <a class="btn light" href="build3.html">View Build</a>
           </div>
         </article>
 
@@ -149,24 +150,7 @@
     </section>
   </main>
 
-  <!-- ===== Footer ===== -->
-  <footer id="site-footer"></footer>
+<script src="script.js" defer></script>
 
-  <!-- ===== Lightbox ===== -->
-  <script>
-    document.querySelectorAll('.card .img > img').forEach(img=>{
-      img.style.cursor='zoom-in';
-      img.addEventListener('click',()=>{
-        const d=document.createElement('dialog');
-        d.style.padding='0'; d.style.border='none'; d.style.background='transparent';
-        d.innerHTML=
-          '<div style="position:fixed;inset:0;background:rgba(0,0,0,.6)"></div>'+
-          `<img src="${img.src}" alt="" style="max-width:90vw;max-height:85vh;border-radius:14px;box-shadow:0 20px 60px rgba(0,0,0,.4);position:fixed;top:50%;left:50%;transform:translate(-50%,-50%)">`;
-        document.body.appendChild(d); d.showModal();
-        d.addEventListener('click',()=>d.close());
-        d.addEventListener('close',()=>d.remove());
-      });
-    });
-  </script>
 </body>
 </html>
