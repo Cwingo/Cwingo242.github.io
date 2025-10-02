@@ -1,0 +1,65 @@
+/* # Base */
+*{box-sizing:border-box}
+body{
+  margin:0;
+  font-family: Arial, Helvetica, sans-serif;
+  background:#0f1116;
+  color:#eef1f6;
+}
+#site-header{ text-align:center; padding:24px 12px 8px; }
+.subtitle{ color:#a9b2c2; margin:6px 0 0; }
+
+/* # Gallery layout */
+#gallery{
+  width:min(1100px,92vw);
+  margin:16px auto 40px;
+  display:flex;
+  flex-wrap:wrap;
+  gap:14px;
+}
+
+/* # Card */
+.card{
+  width:210px;
+  background:#171b23;
+  border:1px solid #222a36;
+  border-radius:12px;
+  padding:10px 10px 14px;
+  cursor:pointer;
+}
+.card:focus{ outline:2px solid #7c8cff; outline-offset:3px; }
+.card h3{ margin:4px 0 8px; font-size:1rem; }
+.by{ color:#8c97ab; margin:0 0 8px; font-size:.85rem; }
+
+/* # Thumbnails (uniform size) */
+.thumb-wrap{
+  width:100%;
+  height:210px;
+  border-radius:10px;
+  overflow:hidden;
+  background:#0b0f16;
+  border:1px solid #222b3a;
+}
+.thumb{
+  width:100%;
+  height:100%;
+  display:block;
+  object-fit:cover;
+}
+
+/* # Modal image + optional frame */
+.modal-image-wrap{ margin:14px 0 6px; }
+.modal-image-wrap img{
+  width:100%;
+  max-width:520px;
+  display:block;
+  margin:0 auto;
+}
+.frame{
+  padding:12px;
+  background:#111315;
+  border:10px solid #111;
+  outline:8px solid #f4f1e8;
+}
+.byline{ color:#7f8aa0; }
+.frame-note{ color:#7f8aa0; text-align:center; margin:10px 0 14px; }

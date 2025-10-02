@@ -1,0 +1,40 @@
+{
+    "parts": [
+        {
+            "_id": 1,
+            "name": "Part 1",
+            "description": "Description for Part 1",
+            "img": "downpipe.png"
+        },
+        {
+            "_id": 2,
+            "name": "Part 2",
+            "description": "Description for Part 2",
+            "img": ""
+        },
+        {
+            "_id": 3,
+            "name": "Part 3",
+            "description": "Description for Part 3",
+            "img": ""
+        },
+        {
+            "_id": 4,
+            "name": "Part 4",
+            "description": "Description for Part 4",
+            "img": ""
+        },
+        {
+            "_id": 5,
+            "name": "Part 5",
+            "description": "Description for Part 5",
+            "img": ""
+        },
+        {
+            "_id": 6,
+            "name": "Part 6",
+            "description": "Description for Part 6",
+            "img": "image_6_downloaded"
+        }
+    ]
+}

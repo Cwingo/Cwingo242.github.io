@@ -1,0 +1,40 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+
+  <title>Assignment 10 • Classes</title>
+
+  <link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
+
+  <link rel="stylesheet" href="styles.css" />
+</head>
+<body>
+  <header id="site-header">
+    <h1>Assignment 10</h1>
+    <p class="subtitle">Classes</p>
+  </header>
+
+  <main id="gallery" aria-live="polite"></main>
+
+  <div id="artModal" class="w3-modal">
+    <div class="w3-modal-content w3-animate-top w3-card-4">
+      <header class="w3-container w3-light-grey">
+        <span class="w3-button w3-display-topright" id="modalClose">&times;</span>
+        <h2 id="mTitle"></h2>
+      </header>
+      <div class="w3-container">
+        <p id="mArtist" class="byline"></p>
+        <div id="mImageWrap" class="modal-image-wrap">
+          <img id="mImage" alt="">
+        </div>
+        <p id="mFrameNote" class="frame-note"></p>
+      </div>
+      <footer class="w3-container w3-light-grey"></footer>
+    </div>
+  </div>
+
+  <script src="script.js"></script>
+</body>
+</html>

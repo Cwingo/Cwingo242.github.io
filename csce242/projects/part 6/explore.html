@@ -1,0 +1,135 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Explore Builds • bmDub network</title>
+  <link rel="stylesheet" href="styles.css" />
+</head>
+<body>
+ <!-- ======================= HEADER ======================= -->
+<header id="site-header">
+  <div class="wrap topbar">
+    <a class="brand" href="index.html">
+      <img src="images/logo.png" alt="bmDub network logo" class="logo" />
+      <span>bmDub network</span>
+    </a>
+
+    <button id="menu-toggle" class="nav-btn" aria-label="Menu" aria-controls="main-nav" aria-expanded="false">
+      <span></span>
+    </button>
+
+    <nav id="main-nav">
+      <a href="index.html">Explore Builds</a>
+      <a href="submit.html">Submit Build</a>
+      <a href="leaderboard.html">Leaderboard</a>
+      <a href="parts.html">Parts Library</a>
+      <a href="shops.html">Shops Directory</a>
+      <a href="tips.html">Tips &amp; Guides</a>
+      <a href="about.html">About</a>
+    </nav>
+
+    <div class="nav-backdrop" id="nav-backdrop"></div>
+  </div>
+</header>
+
+  
+      <label for="nav-toggle" class="nav-backdrop"></label>
+    </div>
+  </header>
+  
+
+  <main class="wrap">
+    <h1>Explore Builds</h1>
+    <p class="meta">Browse community builds. Open any card to view specs, parts, dyno numbers, and runs.</p>
+
+    <div class="section" style="padding-top:16px; padding-bottom:16px">
+      <div class="grid-2">
+        <div class="chips">
+          <span class="chip">All</span>
+          <span class="chip">B58</span>
+          <span class="chip">S55</span>
+          <span class="chip">S63</span>
+          <span class="chip">E85</span>
+          <span class="chip">93</span>
+          <span class="chip">Daily</span>
+          <span class="chip">Track</span>
+        </div>
+        <div style="display:flex; gap:10px; justify-content:flex-end; align-items:center">
+          <label class="meta" for="sort" style="white-space:nowrap">Sort</label>
+          <select id="sort" style="padding:10px 12px; border:1px solid var(--line); border-radius:10px; background:#fff">
+            <option>Newest</option>
+            <option>Highest WHP</option>
+            <option>Fastest 60–130</option>
+          </select>
+        </div>
+      </div>
+    </div>
+
+    <div class="grid-3">
+      <article class="card">
+        <div class="img"></div>
+        <div class="body">
+          <div style="display:flex; justify-content:space-between; align-items:center">
+            <h3>G30 540i • E50 • Stage 2+</h3><strong>585 whp</strong>
+          </div>
+          <div class="meta">B58 • xDrive • Pure800 • XHP</div>
+          <div class="chips"><span class="chip">E50</span><span class="chip">Daily</span></div>
+          <a class="btn" href="build.html">View Build</a>
+        </div>
+      </article>
+
+      <article class="card">
+        <div class="img"></div>
+        <div class="body">
+          <div style="display:flex; justify-content:space-between; align-items:center">
+            <h3>F90 M5 • E30 • Custom</h3><strong>710 whp</strong>
+          </div>
+          <div class="meta">S63 • AWD • Intakes • Downpipes</div>
+          <div class="chips"><span class="chip">Drag</span><span class="chip">E30</span></div>
+          <a class="btn" href="build.html">View Build</a>
+        </div>
+      </article>
+
+
+      <article class="card">
+        <div class="img"></div>
+        <div class="body">
+          <div style="display:flex; justify-content:space-between; align-items:center">
+            <h3>G80 M3 • E50 • OTS</h3><strong>580 whp</strong>
+          </div>
+          <div class="meta">S58 • xDrive • OTS Map</div>
+          <div class="chips"><span class="chip">Street</span><span class="chip">E50</span></div>
+          <a class="btn" href="build.html">View Build</a>
+        </div>
+      </article>
+
+   
+
+     
+
+      <article class="card">
+        <div class="img"></div>
+        <div class="body">
+          <div style="display:flex; justify-content:space-between; align-items:center">
+            <h3>G20 330i • 93 • Street</h3><strong>300 whp</strong>
+          </div>
+          <div class="meta">B48 • RWD • Tune • DP</div>
+          <div class="chips"><span class="chip">93</span><span class="chip">Budget</span></div>
+          <a class="btn" href="build.html">View Build</a>
+        </div>
+      </article>
+    </div>
+
+    <div class="section" style="display:flex; justify-content:center; gap:10px; padding-top:20px">
+      <a class="btn" href="#">Previous</a>
+      <a class="btn primary" href="#">1</a>
+      <a class="btn" href="#">2</a>
+      <a class="btn" href="#">Next</a>
+    </div>
+  </main>
+
+  <script src="script.js" defer></script>
+
+</body>
+</html>
