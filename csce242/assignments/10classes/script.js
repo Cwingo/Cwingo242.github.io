@@ -56,14 +56,14 @@ function Car(o){
     }),
     new Car({
       name:'Lamborghini Huracán',
-      artist:'Automobili Lamborghini',
+      artist:' Lamborghini',
       artistUrl:'https://exoticcars.ae/blog/posts/29/the-lamborghini-huracan-sto',
       image:'images/lambo.png',
       framed:false
     }),
     new Car({
       name:'Audi RS6 Avant',
-      artist:'Audi Sport',
+      artist:'Audi ',
       artistUrl:'https://news.dupontregistry.com/for-sale/audi-abt-rs6r-avant-somo/',
       image:'images/r6.png',
       framed:true
