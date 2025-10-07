@@ -7,42 +7,35 @@
   <link rel="stylesheet" href="styles.css" />
 </head>
 <body>
-<header id="site-header">
-  <div class="wrap topbar">
-    <a class="brand" href="index.html">
-      <img src="images/logo.png" alt="bmDub network logo" class="logo" />
-      <span>bmDub network</span>
-    </a>
+  <header id="site-header">
+    <div class="wrap topbar">
+      <a class="brand" href="index.html">
+        <img src="images/logo.png" alt="bmDub network logo" class="logo" />
+        <span>bmDub network</span>
+      </a>
+      <button id="menu-toggle" class="nav-btn" aria-label="Menu" aria-controls="main-nav" aria-expanded="false">
+        <span></span>
+      </button>
+      <nav id="main-nav">
+        <a href="index.html">Explore Builds</a>
+        <a href="submit.html">Submit Build</a>
+        <a href="leaderboard.html">Leaderboard</a>
+        <a href="parts.html">Parts Library</a>
+        <a href="shops.html">Shops Directory</a>
+        <a href="tips.html">Tips &amp; Guides</a>
+        <a href="about.html">About</a>
+      </nav>
+      <div class="nav-backdrop" id="nav-backdrop"></div>
+    </div>
+  </header>
 
-    <button id="menu-toggle" class="nav-btn" aria-label="Menu" aria-controls="main-nav" aria-expanded="false">
-      <span></span>
-    </button>
-
-    <nav id="main-nav">
-      <a href="index.html">Explore Builds</a>
-      <a href="submit.html">Submit Build</a>
-      <a href="leaderboard.html">Leaderboard</a>
-      <a href="parts.html">Parts Library</a>
-      <a href="shops.html">Shops Directory</a>
-      <a href="tips.html">Tips &amp; Guides</a>
-      <a href="about.html">About</a>
-    </nav>
-
-    <div class="nav-backdrop" id="nav-backdrop"></div>
-  </div>
-</header>
-
-
-  <!-- Main -->
   <main class="wrap">
     <h1>Parts Library</h1>
 
-    <!-- Search -->
     <div class="search">
       <input class="search-input" type="text" placeholder="Search parts" />
     </div>
 
-    <!-- Tabs -->
     <div class="tabs">
       <input type="radio" name="partsTabs" id="tab-all" checked>
       <input type="radio" name="partsTabs" id="tab-engine">
@@ -57,121 +50,26 @@
       </div>
 
       <div class="tab-panels">
-        <!-- All -->
         <section id="panel-all" class="tab-panel" role="tabpanel">
-          <div class="grid-3">
-            <article class="card">
-              <div class="card-media" data-fit="contain">
-                <img src="images/intercooler.png" alt="Intercooler" loading="lazy" />
-              </div>
-              <div class="card-body"><strong>Intercooler</strong><div class="meta">Brand</div></div>
-            </article>
-            <article class="card">
-              <div class="card-media" data-fit="contain">
-                <img src="images/downpipe.png" alt="Downpipe" loading="lazy" />
-              </div>
-              <div class="card-body"><strong>Downpipe</strong><div class="meta">Brand</div></div>
-            </article>
-            <article class="card">
-              <div class="card-media" data-fit="contain">
-                <img src="images/intake.png" alt="Intake" loading="lazy" />
-              </div>
-              <div class="card-body"><strong>Intake</strong><div class="meta">Brand</div></div>
-            </article>
-            <article class="card">
-              <div class="card-media" data-fit="contain">
-                <img src="images/chargepipe.png" alt="Chargepipe" loading="lazy" />
-              </div>
-              <div class="card-body"><strong>Chargepipe</strong><div class="meta">Brand</div></div>
-            </article>
-            <article class="card">
-              <div class="card-media" data-fit="contain">
-                <img src="images/coilover.png" alt="Coilovers" loading="lazy" />
-              </div>
-              <div class="card-body"><strong>Coilovers</strong><div class="meta">Brand</div></div>
-            </article>
-            <article class="card">
-              <div class="card-media" data-fit="contain">
-                <img src="images/brakepads.png" alt="Brake Pads" loading="lazy" />
-              </div>
-              <div class="card-body"><strong>Brake Pads</strong><div class="meta">Brand</div></div>
-            </article>
-          </div>
+          <div id="grid-all" class="grid-3"></div>
         </section>
 
-        <!-- Engine -->
         <section id="panel-engine" class="tab-panel" role="tabpanel">
-          <div class="grid-3">
-            <article class="card">
-              <div class="card-media" data-fit="contain">
-                <img src="json/images/intercooler.png" alt="Intercooler" loading="lazy" />
-              </div>
-              <div class="card-body"><strong>Intercooler</strong><div class="meta">Brand</div></div>
-            </article>
-            <article class="card">
-              <div class="card-media" data-fit="contain">
-                <img src="json/images/downpipe.png" alt="Downpipe" loading="lazy" />
-              </div>
-              <div class="card-body"><strong>Downpipe</strong><div class="meta">Brand</div></div>
-            </article>
-            <article class="card">
-              <div class="card-media" data-fit="contain">
-                <img src="json/images/intake.png" alt="Intake" loading="lazy" />
-              </div>
-              <div class="card-body"><strong>Intake</strong><div class="meta">Brand</div></div>
-            </article>
-          </div>
+          <div id="grid-engine" class="grid-3"></div>
         </section>
 
-        <!-- Suspension -->
         <section id="panel-suspension" class="tab-panel" role="tabpanel">
-          <div class="grid-3">
-            <article class="card">
-              <div class="card-media" data-fit="contain">
-                <img src="images/coilover.png" alt="Coilovers" loading="lazy" />
-              </div>
-              <div class="card-body"><strong>Coilovers</strong><div class="meta">Brand</div></div>
-            </article>
-            <article class="card">
-              <div class="card-media" data-fit="contain">
-                <img src="images/Lowering.png" alt="Lowering Springs" loading="lazy" />
-              </div>
-              <div class="card-body"><strong>Lowering Springs</strong><div class="meta">Brand</div></div>
-            </article>
-            <article class="card">
-              <div class="card-media" data-fit="contain">
-                <img src="images/arms.png" alt="Camber Arms" loading="lazy" />
-              </div>
-              <div class="card-body"><strong>Camber Arms</strong><div class="meta">Brand</div></div>
-            </article>
-          </div>
+          <div id="grid-suspension" class="grid-3"></div>
         </section>
 
-        <!-- Interior -->
         <section id="panel-interior" class="tab-panel" role="tabpanel">
-          <div class="grid-3">
-            <article class="card">
-              <div class="card-media" data-fit="contain">
-                <img src="images/shiftknob.png" alt="Shift Knob" loading="lazy" />
-              </div>
-              <div class="card-body"><strong>Shift Knob</strong><div class="meta">Brand</div></div>
-            </article>
-          
-            <article class="card">
-              <div class="card-media" data-fit="contain">
-                <img src="images/floormats.png" alt="Floor Mats" loading="lazy" />
-              </div>
-              <div class="card-body"><strong>Floor Mats</strong><div class="meta">Brand</div></div>
-            </article>
-          </div>
+          <div id="grid-interior" class="grid-3"></div>
         </section>
       </div>
     </div>
   </main>
 
   <script src="script.js" defer></script>
-  <scirpt src="json-parts-parsing.js" defer></scirpt>
-
+  <script src="json-parts-parsing.js" defer></script>
 </body>
 </html>
-

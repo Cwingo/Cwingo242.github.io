@@ -1,40 +1,85 @@
 {
-    "parts": [
-        {
-            "_id": 1,
-            "name": "Part 1",
-            "description": "Description for Part 1",
-            "img": "downpipe.png"
-        },
-        {
-            "_id": 2,
-            "name": "Part 2",
-            "description": "Description for Part 2",
-            "img": ""
-        },
-        {
-            "_id": 3,
-            "name": "Part 3",
-            "description": "Description for Part 3",
-            "img": ""
-        },
-        {
-            "_id": 4,
-            "name": "Part 4",
-            "description": "Description for Part 4",
-            "img": ""
-        },
-        {
-            "_id": 5,
-            "name": "Part 5",
-            "description": "Description for Part 5",
-            "img": ""
-        },
-        {
-            "_id": 6,
-            "name": "Part 6",
-            "description": "Description for Part 6",
-            "img": "image_6_downloaded"
-        }
+    "items": [
+      {
+        "_id": 1,
+        "name": "Intercooler",
+        "brand": "Wagner Tuning",
+        "category": "Engine",
+        "image": "images/intercooler.png",
+        "price": 749
+      },
+      {
+        "_id": 2,
+        "name": "Downpipe",
+        "brand": "VRSF",
+        "category": "Engine",
+        "image": "images/downpipe.png",
+        "price": 489
+      },
+      {
+        "_id": 3,
+        "name": "Intake",
+        "brand": "Eventuri",
+        "category": "Engine",
+        "image": "images/intake.png",
+        "price": 1195
+      },
+      {
+        "_id": 4,
+        "name": "Chargepipe",
+        "brand": "FTP",
+        "category": "Engine",
+        "image": "images/chargepipe.png",
+        "price": 249
+      },
+      {
+        "_id": 5,
+        "name": "Coilovers",
+        "brand": "KW V3",
+        "category": "Suspension",
+        "image": "images/coilover.png",
+        "price": 2599
+      },
+      {
+        "_id": 6,
+        "name": "Brake Pads",
+        "brand": "Hawk HPS",
+        "category": "Suspension",
+        "image": "images/brakepads.png",
+        "price": 189
+      },
+      {
+        "_id": 7,
+        "name": "Lowering Springs",
+        "brand": "H&R Sport",
+        "category": "Suspension",
+        "image": "images/Lowering.png",
+        "price": 329
+      },
+      {
+        "_id": 8,
+        "name": "Camber Arms",
+        "brand": "SPC",
+        "category": "Suspension",
+        "image": "images/arms.png",
+        "price": 259
+      },
+      {
+        "_id": 9,
+        "name": "Shift Knob",
+        "brand": "BMW M Performance",
+        "category": "Interior",
+        "image": "images/shiftknob.png",
+        "price": 199
+      },
+      {
+        "_id": 10,
+        "name": "Floor Mats",
+        "brand": "BMW OEM",
+        "category": "Interior",
+        "image": "images/floormats.png",
+        "price": 129
+      }
     ]
-}
+  }
+  
