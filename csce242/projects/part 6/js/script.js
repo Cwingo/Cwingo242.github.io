@@ -46,22 +46,15 @@ document.querySelectorAll('[data-gallery]').forEach(gal => {
 });
 
 /* PARTS: CONFIG */
-const JSON_URL = "https://cwingo.github.io/csce242/projects/part6/data/parts.json";
-const FAV_KEY = "bmdub_favorites_v1";
+const JSON_URL = "https://cwingo.github.io/Cwingo242.github.io/csce242/projects/part%206/json/parts.json";
 
-/* PARTS: STATE + HELPERS */
+/* PARTS: HELPERS */
 const $ = (s) => document.querySelector(s);
-function getFavs() { try { return new Set(JSON.parse(localStorage.getItem(FAV_KEY) || "[]")); } catch { return new Set(); } }
-function saveFavs(set) { localStorage.setItem(FAV_KEY, JSON.stringify([...set])); }
-let FAVS = getFavs();
-let CURRENT_ITEMS = [];
 
 function makePartCard(it) {
   const a = document.createElement("article");
   a.className = "card";
-  const isFav = FAVS.has(String(it._id));
   a.innerHTML = `
-    <button class="fav-btn ${isFav ? "is-fav" : ""}" data-id="${it._id}" aria-label="Favorite">♥</button>
     <div class="card-media" data-fit="contain">
       <img src="${it.image}" alt="${it.name}" loading="lazy" />
     </div>
@@ -72,6 +65,51 @@ function makePartCard(it) {
   `;
   return a;
 }
+
+function renderParts(items) {
+  const all = $("#grid-all");
+  const eng = $("#grid-engine");
+  const sus = $("#grid-suspension");
+  const intr = $("#grid-interior");
+  [all, eng, sus, intr].forEach(g => g && (g.innerHTML = ""));
+  items.forEach(it => {
+    all && all.appendChild(makePartCard(it));
+    if (it.category === "Engine" && eng) eng.appendChild(makePartCard(it));
+    if (it.category === "Suspension" && sus) sus.appendChild(makePartCard(it));
+    if (it.category === "Interior" && intr) intr.appendChild(makePartCard(it));
+  });
+}
+
+function hookSearch(items) {
+  const input = $(".search-input");
+  if (!input) return;
+  input.addEventListener("input", () => {
+    const q = input.value.trim().toLowerCase();
+    const f = items.filter(it =>
+      it.name.toLowerCase().includes(q) ||
+      it.brand.toLowerCase().includes(q) ||
+      it.category.toLowerCase().includes(q)
+    );
+    renderParts(f);
+  });
+}
+
+async function initParts() {
+  try {
+    const res = await fetch(JSON_URL, { cache: "no-store" });
+    if (!res.ok) throw new Error(`HTTP ${res.status}`);
+    const data = await res.json();
+    const items = Array.isArray(data.items) ? data.items : [];
+    renderParts(items);
+    hookSearch(items);
+  } catch (e) {
+    const all = $("#grid-all");
+    if (all) all.innerHTML = `<p>Could not load parts.<br><code>${e.message}</code></p>`;
+  }
+}
+
+document.addEventListener("DOMContentLoaded", initParts);
+
 
 /* PARTS: SORT + FILTER */
 function applySort(items) {
