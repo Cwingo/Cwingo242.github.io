@@ -1,0 +1,79 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>About • bmDub network</title>
+  <link rel="stylesheet" href="styles.css" />
+</head>
+<body>
+<header id="site-header">
+  <div class="wrap topbar">
+    <a class="brand" href="index.html">
+      <img src="images/logo.png" alt="bmDub network logo" class="logo" />
+      <span>bmDub network</span>
+    </a>
+    <button id="menu-toggle" class="nav-btn" aria-label="Menu" aria-controls="main-nav" aria-expanded="false">
+      <span></span>
+    </button>
+    <nav id="main-nav">
+      <a href="index.html">Explore Builds</a>
+      <a href="submit.html">Submit Build</a>
+      <a href="leaderboard.html">Leaderboard</a>
+      <a href="parts.html">Parts Library</a>
+      <a href="shops.html">Shops Directory</a>
+      <a href="tips.html">Tips &amp; Guides</a>
+      <a href="about.html">About</a>
+    </nav>
+    <div class="nav-backdrop" id="nav-backdrop"></div>
+  </div>
+</header>
+
+<main class="wrap">
+  <section class="section">
+    <h1>About</h1>
+    <div class="about-grid">
+      <p class="about-lead">bmDub network is a student project prototype showing how a community could share BMW builds, link parts, tag shops, and post real results.</p>
+      <div class="about-pic">
+        <img src="images/meabout.png" alt="Me standing next to a m4">
+      </div>
+    </div>
+  </section>
+
+  <section class="about-contact">
+    <h2 class="page-title">Contact Me</h2>
+    <div class="contact-grid">
+      <form id="contact-form">
+        <input type="text" name="name" placeholder="Name" required>
+        <input type="email" name="email" placeholder="Email" required>
+        <input type="text" name="subject" placeholder="Subject" required>
+        <textarea name="message" placeholder="Message" required></textarea>
+        <button type="submit">Send</button>
+        <p id="form-status"></p>
+      </form>      
+
+      <aside class="contact-aside">
+        <div class="card">
+          <h3>Featured Video</h3>
+          <div class="video-wrap">
+            <iframe
+              title="BMW Build Showcase"
+              src="https://www.youtube.com/embed/1zyy3i4pLZ8?rel=0&modestbranding=1"
+              loading="lazy"
+              allowfullscreen>
+            </iframe>
+          </div>
+          <ul class="contact-list">
+            <li><strong>Email:</strong> cmwingo@email.sc.edu</li>
+            <li><strong>Site:</strong> Cwingo242.github.io</li>
+          </ul>
+        </div>
+      </aside>
+    </div>
+  </section>
+</main>
+
+<script src="js/script.js" defer></script>
+<script src="js/about-contact.js" defer></script>
+</body>
+</html>

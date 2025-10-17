@@ -1,0 +1,152 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Home • bmDub network</title>
+  <link rel="stylesheet" href="styles.css" />
+</head>
+<body>
+<header id="site-header">
+  <div class="wrap topbar">
+    <a class="brand" href="index.html">
+      <img src="images/logo.png" alt="bmDub network logo" class="logo" />
+      <span>bmDub network</span>
+    </a>
+
+    <button id="menu-toggle" class="nav-btn" aria-label="Menu" aria-controls="main-nav" aria-expanded="false">
+      <span></span>
+    </button>
+
+    <nav id="main-nav">
+      <a href="index.html">Explore Builds</a>
+      <a href="submit.html">Submit Build</a>
+      <a href="leaderboard.html">Leaderboard</a>
+      <a href="parts.html">Parts Library</a>
+      <a href="shops.html">Shops Directory</a>
+      <a href="tips.html">Tips &amp; Guides</a>
+      <a href="about.html">About</a>
+    </nav>
+
+    <div class="nav-backdrop" id="nav-backdrop"></div>
+  </div>
+</header>
+
+  
+
+  <!-- ===== Hero (full-bleed) ===== -->
+  <section class="hero hero-bleed">
+    <div class="hero-media">
+      <video autoplay muted loop playsinline preload="metadata" poster="images/hero-poster.jpg">
+        <source src="images/hero.mp4" type="video/webm" />
+        <source src="images/hero.mp4" type="video/mp4" />
+      </video>
+    </div>
+  
+    <div class="wrap">
+      <div class="hero-inner">
+        <h1>Real BMW builds with real numbers.</h1>
+        <p class="meta">Community builds with parts lists, dyno sheets, 60–130s, and shop tags. Submit your own and get featured.</p>
+        <div class="hero-actions">
+          <a class="btn blue" href="build2.html">Explore Builds</a>
+          <a class="btn red" href="submit.html">Submit Build</a>
+        </div>
+        <div class="statrow hero-stats">
+          <div class="stat"><div class="k">---</div><div class="l">Total Builds</div></div>
+          <div class="stat"><div class="k">---</div><div class="l">Published This Week</div></div>
+          <div class="stat"><div class="k">--- whp</div><div class="l">Avg Top-10 Dyno</div></div>
+        </div>
+      </div>
+    </div>
+  </section>
+  
+
+  <main id="content" class="wrap">
+    <section id="featured" class="section">
+      <h2>Featured Builds</h2>
+      <div id="featured-grid" class="grid-3">
+
+        <article class="card card--overlay" id="feat-540i">
+          <div class="img">
+            <img src="images/540.png"
+                 alt="G30 540i • E50 • Stage 2+"
+                 loading="lazy"
+                 onload="this.parentElement.classList.add('loaded')"
+                 style="--pos:50% 40%">
+          </div>
+          <div class="body">
+            <div style="display:flex;justify-content:space-between;align-items:center">
+              <h3>G30 540i • E50 • Stage 2+</h3><strong>585 whp</strong>
+            </div>
+            <div class="meta">B58 | xDrive | Pure800 | XHP | Catless DP</div>
+            <div class="chips"><span class="chip">E50</span><span class="chip">Street</span><span class="chip">Daily</span></div>
+            <a class="btn light" href="build.html">View Build</a>
+          </div>
+        </article>
+
+        <article class="card card--overlay" id="feat-m5">
+          <div class="img">
+            <img src="images/m5.png"
+                 alt="F90 M5 • E30 • Custom"
+                 loading="lazy"
+                 onload="this.parentElement.classList.add('loaded')"
+                 style="--pos:50% 35%">
+          </div>
+          <div class="body">
+            <div style="display:flex;justify-content:space-between;align-items:center">
+              <h3>F90 M5 • E30 • Custom</h3><strong>710 whp</strong>
+            </div>
+            <div class="meta">S63 | Intakes | Downpipes</div>
+            <div class="chips"><span class="chip">Drag</span><span class="chip">E30</span></div>
+            <a class="btn light" href="build2.html">View Build</a>
+          </div>
+        </article>
+
+        <article class="card card--overlay" id="feat-340i">
+          <div class="img">
+            <img src="images/340.png"
+                 alt="F30 340i • 93 • OTS"
+                 loading="lazy"
+                 onload="this.parentElement.classList.add('loaded')"
+                 style="--pos:55% 55%">
+          </div>
+          <div class="body">
+            <div style="display:flex;justify-content:space-between;align-items:center">
+              <h3>F30 340i • 93 • OTS</h3><strong>440 whp</strong>
+            </div>
+            <div class="meta">B58 | RWD | IC | CP</div>
+            <div class="chips"><span class="chip">Budget</span><span class="chip">93</span></div>
+            <a class="btn light" href="build3.html">View Build</a>
+          </div>
+        </article>
+
+      </div>
+    </section>
+
+    <section id="top-runs" class="section">
+      <h2>Top Runs</h2>
+      <div id="top-runs-grid" class="grid-2">
+        <table id="top-whp" class="table">
+          <thead><tr><th>#</th><th>Build</th><th>Fuel</th><th>WHP</th></tr></thead>
+          <tbody>
+            <tr><td>1</td><td>F90 M5 (S63)</td><td>E30</td><td>710</td></tr>
+            <tr><td>2</td><td>G30 540i (B58)</td><td>E50</td><td>585</td></tr>
+            <tr><td>3</td><td>F30 340i (B58)</td><td>93</td><td>440</td></tr>
+          </tbody>
+        </table>
+
+        <table id="top-60130" class="table">
+          <thead><tr><th>#</th><th>Build</th><th>Fuel</th><th>Time (s)</th></tr></thead>
+          <tbody>
+            <tr><td>1</td><td>F90 M5</td><td>E30</td><td>5.14</td></tr>
+            <tr><td>2</td><td>G30 540i</td><td>E50</td><td>7.20</td></tr>
+            <tr><td>3</td><td>F30 340i</td><td>93</td><td>9.65</td></tr>
+          </tbody>
+        </table>
+      </div>
+    </section>
+  </main>
+
+  <script src="js/script.js" defer></script>
+</body>
+</html>
