@@ -66,6 +66,7 @@ function makePartCard(it) {
   return a;
 }
 
+/* Initial simple render (kept for compatibility with other pages) */
 function renderParts(items) {
   const all = $("#grid-all");
   const eng = $("#grid-engine");
@@ -94,7 +95,7 @@ function hookSearch(items) {
   });
 }
 
-async function initParts() {
+async function initPartsLegacy() {
   try {
     const res = await fetch(JSON_URL, { cache: "no-store" });
     if (!res.ok) throw new Error(`HTTP ${res.status}`);
@@ -107,9 +108,6 @@ async function initParts() {
     if (all) all.innerHTML = `<p>Could not load parts.<br><code>${e.message}</code></p>`;
   }
 }
-
-document.addEventListener("DOMContentLoaded", initParts);
-
 
 /* PARTS: SORT + FILTER */
 function applySort(items) {
@@ -129,8 +127,13 @@ function applyFavFilter(items) {
   return items.filter(it => FAVS.has(String(it._id)));
 }
 
-/* PARTS: RENDER */
-function renderParts(items) {
+/* Globals for enhanced renderer */
+let CURRENT_ITEMS = [];
+const FAVS = new Set(JSON.parse(localStorage.getItem('favParts') || '[]'));
+const saveFavs = (set) => localStorage.setItem('favParts', JSON.stringify([...set]));
+
+/* Enhanced render overriding the simple one when controls exist */
+function renderPartsEnhanced(items) {
   const all = document.getElementById("grid-all");
   const eng = document.getElementById("grid-engine");
   const sus = document.getElementById("grid-suspension");
@@ -178,7 +181,7 @@ function wireFavButtons() {
         it.brand.toLowerCase().includes(q) ||
         it.category.toLowerCase().includes(q)
       );
-      renderParts(filtered);
+      renderPartsEnhanced(filtered);
     });
   });
 }
@@ -221,12 +224,12 @@ function hookPartsControls(items) {
           it.category.toLowerCase().includes(q)
         );
         CURRENT_ITEMS = filtered;
-        renderParts(filtered);
+        renderPartsEnhanced(filtered);
       }, 150);
     });
   }
-  if (sort) sort.addEventListener("change", () => renderParts(CURRENT_ITEMS));
-  if (favOnly) favOnly.addEventListener("change", () => renderParts(CURRENT_ITEMS));
+  if (sort) sort.addEventListener("change", () => renderPartsEnhanced(CURRENT_ITEMS));
+  if (favOnly) favOnly.addEventListener("change", () => renderPartsEnhanced(CURRENT_ITEMS));
 }
 
 /* PARTS: SKELETONS */
@@ -255,7 +258,7 @@ function syncTabFromHash() {
 }
 window.addEventListener("hashchange", syncTabFromHash);
 
-/* PARTS: LOAD */
+/* PARTS: LOAD (enhanced path) */
 async function initParts() {
   try {
     syncTabFromHash();
@@ -264,24 +267,42 @@ async function initParts() {
     if (!res.ok) throw new Error(`HTTP ${res.status}`);
     const data = await res.json();
     hookPartsControls(data.items);
-    renderParts(data.items);
+    renderPartsEnhanced(data.items);
   } catch (e) {
     const all = document.getElementById("grid-all");
     if (all) all.innerHTML = `<p>Could not load parts.<br><code>${e.message}</code></p>`;
   }
 }
-document.addEventListener("DOMContentLoaded", initParts);
 
-/* CONTACT FORM */
+/* Initialize whichever parts loader is needed for the page */
+document.addEventListener("DOMContentLoaded", () => {
+  // If the page has the enhanced grids/controls, use enhanced init; otherwise use legacy
+  if (document.querySelector('#grid-all') && document.querySelector('.search')) {
+    initParts();
+  } else if (document.querySelector('#grid-all')) {
+    initPartsLegacy();
+  }
+});
+
+/* CONTACT FORM (async + timeout + clearer errors) */
 (() => {
   const form = document.getElementById('contact-form');
   const statusMsg = document.getElementById('form-status');
+  const submitBtn = form ? form.querySelector('[type="submit"]') : null;
   if (!form || !statusMsg) return;
+
+  const API_URL = 'https://bmdub-api.onrender.com/contact';
+  const TIMEOUT_MS = 15000;
+
+  function setStatus(kind, text) {
+    statusMsg.className = `status ${kind}`;
+    statusMsg.textContent = text;
+  }
 
   form.addEventListener('submit', async (e) => {
     e.preventDefault();
-    statusMsg.textContent = 'Sending…';
 
+    // Basic client validation to avoid 400s
     const payload = {
       name: form.name.value.trim(),
       email: form.email.value.trim(),
@@ -289,24 +310,44 @@ document.addEventListener("DOMContentLoaded", initParts);
       message: form.message.value.trim(),
       source: 'bmDub site'
     };
+    if (payload.name.length < 2 || !/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(payload.email) ||
+        payload.subject.length < 2 || payload.message.length < 10) {
+      setStatus('error', 'Please complete all fields (message ≥ 10 chars).');
+      return;
+    }
+
+    setStatus('info', 'Sending…');
+    if (submitBtn) submitBtn.disabled = true;
+
+    // Abort after TIMEOUT_MS to surface Render cold starts
+    const ctrl = new AbortController();
+    const t = setTimeout(() => ctrl.abort(), TIMEOUT_MS);
 
     try {
-      const res = await fetch('https://bmdub-api.onrender.com/contact', {
+      const res = await fetch(API_URL, {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
-        body: JSON.stringify(payload)
+        body: JSON.stringify(payload),
+        signal: ctrl.signal
       });
+      clearTimeout(t);
 
       const data = await res.json().catch(() => ({}));
       if (!res.ok || data.ok === false) {
-        throw new Error(data.error || 'Error sending message. Try again later.');
+        throw new Error(data.error || `Request failed (${res.status})`);
       }
 
-      statusMsg.textContent = 'Message sent successfully!';
+      setStatus('success', 'Message sent successfully!');
       form.reset();
     } catch (err) {
-      statusMsg.textContent = err.message || 'Network error. Please try again.';
+      if (err.name === 'AbortError') {
+        setStatus('error', 'Connection timeout. Try again in a moment.');
+      } else {
+        setStatus('error', String(err.message || 'Error sending message. Try again later.'));
+      }
       console.error('Contact form error:', err);
+    } finally {
+      if (submitBtn) submitBtn.disabled = false;
     }
   });
 })();
