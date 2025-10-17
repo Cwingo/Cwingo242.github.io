@@ -273,38 +273,40 @@ async function initParts() {
 document.addEventListener("DOMContentLoaded", initParts);
 
 /* CONTACT FORM */
-const form = document.getElementById("contact-form");
-const statusMsg = document.getElementById("form-status");
+(() => {
+  const form = document.getElementById('contact-form');
+  const statusMsg = document.getElementById('form-status');
+  if (!form || !statusMsg) return;
 
-if (form) {
-  form.addEventListener("submit", async (e) => {
+  form.addEventListener('submit', async (e) => {
     e.preventDefault();
-    statusMsg.textContent = "Sending...";
+    statusMsg.textContent = 'Sending…';
 
-    const data = {
+    const payload = {
       name: form.name.value.trim(),
       email: form.email.value.trim(),
       subject: form.subject.value.trim(),
       message: form.message.value.trim(),
-      source: "bmDub site"
+      source: 'bmDub site'
     };
 
     try {
-      const res = await fetch("https://bmdub-api.onrender.com/contact", {
-        method: "POST",
-        headers: { "Content-Type": "application/json" },
-        body: JSON.stringify(data)
+      const res = await fetch('https://bmdub-api.onrender.com/contact', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify(payload)
       });
 
-      const result = await res.json();
-      if (res.ok && result.ok) {
-        statusMsg.textContent = "Message sent successfully!";
-        form.reset();
-      } else {
-        statusMsg.textContent = "Error sending message. Try again later.";
+      const data = await res.json().catch(() => ({}));
+      if (!res.ok || data.ok === false) {
+        throw new Error(data.error || 'Error sending message. Try again later.');
       }
+
+      statusMsg.textContent = 'Message sent successfully!';
+      form.reset();
     } catch (err) {
-      statusMsg.textContent = "Network error. Please try again.";
+      statusMsg.textContent = err.message || 'Network error. Please try again.';
+      console.error('Contact form error:', err);
     }
   });
-}
+})();
