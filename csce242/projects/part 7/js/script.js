@@ -284,70 +284,64 @@ document.addEventListener("DOMContentLoaded", () => {
   }
 });
 
-/* CONTACT FORM (async + timeout + clearer errors) */
-(() => {
-  const form = document.getElementById('contact-form');
-  const statusMsg = document.getElementById('form-status');
-  const submitBtn = form ? form.querySelector('[type="submit"]') : null;
-  if (!form || !statusMsg) return;
+//* CONTACT FORM */
+const form = document.getElementById("contact-form");
+const statusMsg = document.getElementById("form-status");
 
-  const API_URL = 'https://bmdub-api.onrender.com/contact';
-  const TIMEOUT_MS = 15000;
+if (form) {
+  const API_URL = "https://bmdub-api.onrender.com/contact";
 
-  function setStatus(kind, text) {
-    statusMsg.className = `status ${kind}`;
-    statusMsg.textContent = text;
-  }
-
-  form.addEventListener('submit', async (e) => {
+  form.addEventListener("submit", async (e) => {
     e.preventDefault();
+    statusMsg.textContent = "Sending...";
 
-    // Basic client validation to avoid 400s
-    const payload = {
+    const data = {
       name: form.name.value.trim(),
       email: form.email.value.trim(),
       subject: form.subject.value.trim(),
       message: form.message.value.trim(),
-      source: 'bmDub site'
+      source: "bmDub site"
     };
-    if (payload.name.length < 2 || !/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(payload.email) ||
-        payload.subject.length < 2 || payload.message.length < 10) {
-      setStatus('error', 'Please complete all fields (message ≥ 10 chars).');
-      return;
-    }
 
-    setStatus('info', 'Sending…');
-    if (submitBtn) submitBtn.disabled = true;
-
-    // Abort after TIMEOUT_MS to surface Render cold starts
-    const ctrl = new AbortController();
-    const t = setTimeout(() => ctrl.abort(), TIMEOUT_MS);
+    // Helper to send with timeout
+    const sendWithTimeout = (url, options, ms = 25000) => {
+      const ctrl = new AbortController();
+      const timer = setTimeout(() => ctrl.abort(), ms);
+      return fetch(url, { ...options, signal: ctrl.signal }).finally(() => clearTimeout(timer));
+    };
 
     try {
-      const res = await fetch(API_URL, {
-        method: 'POST',
-        headers: { 'Content-Type': 'application/json' },
-        body: JSON.stringify(payload),
-        signal: ctrl.signal
+      let res = await sendWithTimeout(API_URL, {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify(data)
       });
-      clearTimeout(t);
 
-      const data = await res.json().catch(() => ({}));
-      if (!res.ok || data.ok === false) {
-        throw new Error(data.error || `Request failed (${res.status})`);
+      // Retry once if API is waking up
+      if (!res.ok && res.status >= 500) {
+        statusMsg.textContent = "Server waking up... retrying.";
+        await new Promise((r) => setTimeout(r, 4000));
+        res = await sendWithTimeout(API_URL, {
+          method: "POST",
+          headers: { "Content-Type": "application/json" },
+          body: JSON.stringify(data)
+        });
       }
 
-      setStatus('success', 'Message sent successfully!');
-      form.reset();
-    } catch (err) {
-      if (err.name === 'AbortError') {
-        setStatus('error', 'Connection timeout. Try again in a moment.');
+      const result = await res.json().catch(() => ({}));
+      if (res.ok && result.ok) {
+        statusMsg.textContent = "Message sent successfully!";
+        form.reset();
       } else {
-        setStatus('error', String(err.message || 'Error sending message. Try again later.'));
+        statusMsg.textContent = "Error sending message. Try again later.";
       }
-      console.error('Contact form error:', err);
-    } finally {
-      if (submitBtn) submitBtn.disabled = false;
+    } catch (err) {
+      if (err.name === "AbortError") {
+        statusMsg.textContent = "Connection timeout. Try again in a moment.";
+      } else {
+        console.error("Contact form error:", err);
+        statusMsg.textContent = "Network error. Please try again.";
+      }
     }
   });
-})();
+}
