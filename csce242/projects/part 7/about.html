@@ -43,14 +43,18 @@
   <section class="about-contact">
     <h2 class="page-title">Contact Me</h2>
     <div class="contact-grid">
-      <form id="contact-form">
-        <input type="text" name="name" placeholder="Name" required>
-        <input type="email" name="email" placeholder="Email" required>
-        <input type="text" name="subject" placeholder="Subject" required>
-        <textarea name="message" placeholder="Message" required></textarea>
+      <form id="contact-form" action="https://formspree.io/f/mqayndwk" method="POST" novalidate>
+        <input type="text" name="name" placeholder="Name" required minlength="2" />
+        <input type="email" name="email" placeholder="Email" required />
+        <input type="text" name="subject" placeholder="Subject" required minlength="2" />
+        <textarea name="message" placeholder="Message" required minlength="10"></textarea>
+        <input type="text" name="_gotcha" style="display:none" tabindex="-1" autocomplete="off" />
+        <input type="hidden" name="_replyto" value="" />
+        <input type="hidden" name="_subject" value="bmDub Contact" />
         <button type="submit">Send</button>
-        <p id="form-status"></p>
-      </form>      
+        <p id="form-status" aria-live="polite"></p>
+      </form>
+        
 
       <aside class="contact-aside">
         <div class="card">

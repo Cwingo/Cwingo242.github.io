@@ -284,64 +284,42 @@ document.addEventListener("DOMContentLoaded", () => {
   }
 });
 
-//* CONTACT FORM */
-const form = document.getElementById("contact-form");
-const statusMsg = document.getElementById("form-status");
+(() => {
+  const form = document.getElementById('contact-form');
+  const status = document.getElementById('form-status');
+  if (!form || !status) return;
 
-if (form) {
-  const API_URL = "https://bmdub-api.onrender.com/contact";
+  const ENDPOINT = form.getAttribute('action');
+  const setStatus = (cls, msg) => { status.className = `status ${cls}`; status.textContent = msg; };
 
-  form.addEventListener("submit", async (e) => {
+  form.addEventListener('submit', async (e) => {
     e.preventDefault();
-    statusMsg.textContent = "Sending...";
+    const fd = new FormData(form);
 
-    const data = {
-      name: form.name.value.trim(),
-      email: form.email.value.trim(),
-      subject: form.subject.value.trim(),
-      message: form.message.value.trim(),
-      source: "bmDub site"
-    };
+    const name = String(fd.get('name') || '').trim();
+    const email = String(fd.get('email') || '').trim();
+    const subject = String(fd.get('subject') || '').trim();
+    const message = String(fd.get('message') || '').trim();
 
-    // Helper to send with timeout
-    const sendWithTimeout = (url, options, ms = 25000) => {
-      const ctrl = new AbortController();
-      const timer = setTimeout(() => ctrl.abort(), ms);
-      return fetch(url, { ...options, signal: ctrl.signal }).finally(() => clearTimeout(timer));
-    };
+    if (name.length < 2 || subject.length < 2 || message.length < 10 || !/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email)) {
+      setStatus('error', 'Please complete all fields (message ≥ 10 chars).');
+      return;
+    }
+
+    fd.set('_replyto', email);
+    setStatus('info', 'Sending…');
 
     try {
-      let res = await sendWithTimeout(API_URL, {
-        method: "POST",
-        headers: { "Content-Type": "application/json" },
-        body: JSON.stringify(data)
-      });
-
-      // Retry once if API is waking up
-      if (!res.ok && res.status >= 500) {
-        statusMsg.textContent = "Server waking up... retrying.";
-        await new Promise((r) => setTimeout(r, 4000));
-        res = await sendWithTimeout(API_URL, {
-          method: "POST",
-          headers: { "Content-Type": "application/json" },
-          body: JSON.stringify(data)
-        });
-      }
-
-      const result = await res.json().catch(() => ({}));
-      if (res.ok && result.ok) {
-        statusMsg.textContent = "Message sent successfully!";
+      const res = await fetch(ENDPOINT, { method: 'POST', headers: { 'Accept': 'application/json' }, body: fd });
+      if (res.ok) {
+        setStatus('success', 'Message sent! Check your inbox.');
         form.reset();
       } else {
-        statusMsg.textContent = "Error sending message. Try again later.";
+        const data = await res.json().catch(() => ({}));
+        setStatus('error', data?.errors?.[0]?.message || 'Error sending message.');
       }
-    } catch (err) {
-      if (err.name === "AbortError") {
-        statusMsg.textContent = "Connection timeout. Try again in a moment.";
-      } else {
-        console.error("Contact form error:", err);
-        statusMsg.textContent = "Network error. Please try again.";
-      }
+    } catch {
+      setStatus('error', 'Network error. Please try again.');
     }
   });
-}
+})();
